@@ -10,6 +10,29 @@ const Header = () => {
     setIsNavVisible(!isNavVisible);
   };
 
+  const headerNav = [
+    {
+      title: "intro",
+      url: "#intro",
+    },
+    {
+      title: "skill",
+      url: "#skill",
+    },
+    {
+      title: "site",
+      url: "#site",
+    },
+    {
+      title: "portfolio",
+      url: "#port",
+    },
+    {
+      title: "contact",
+      url: "#contact",
+    },
+  ];
+
   return (
     <HeaderWrapper>
       <HeaderInner isNavVisible={isNavVisible}>
@@ -18,21 +41,11 @@ const Header = () => {
         </Logo>
         <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
           <ul>
-            <li>
-              <a href="#intro">intro</a>
-            </li>
-            <li>
-              <a href="#skill">skill</a>
-            </li>
-            <li>
-              <a href="#site">site</a>
-            </li>
-            <li>
-              <a href="#port">portfolio</a>
-            </li>
-            <li>
-              <a href="#contact">contact</a>
-            </li>
+            {headerNav.map((nav, key) => (
+              <li key={key}>
+                <a href={nav.url}>{nav.title}</a>
+              </li>
+            ))}
           </ul>
         </Nav>
         <NavMobile
@@ -64,7 +77,7 @@ const HeaderInner = styled.div<{ isNavVisible: boolean }>`
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) =>
-    props.isNavVisible ? "rgba(254, 168, 180) " : "rgba(255, 250, 245, 0.1)"};
+    props.isNavVisible ? "rgba(254, 168, 180,1)" : "rgba(255, 250, 245, 0.1)"};
   /* 헤더 불투명 효과 */
   backdrop-filter: blur(15px);
   padding: 1rem;
@@ -103,18 +116,21 @@ const NavMobile = styled.div<{ isNavVisible: boolean }>`
     display: block;
     width: 40px;
     height: 2px;
+    /* 메뉴가 열리면(isNavVisible) 흰색, 닫히면 검은색 */
     background-color: ${(props) => (props.isNavVisible ? "#fff " : "#000")};
     margin-top: 19px;
     position: relative;
 
+    /* 햄버거 메뉴의 윗 줄 막대 */
     &::before {
-      content: "";
+      content: ""; // 가상 요소에 content 속성이 필수!
       width: 40px;
       height: 2px;
       background-color: ${(props) => props.theme.colors.black000};
       position: absolute;
       right: 0;
       top: 6px;
+      // 메뉴가 열리면, 막대 길이를 반으로 줄어드는데, 자연스럽게 애니메이션 효과 적용
       transition: width 0.3s;
     }
     &::after {
@@ -131,6 +147,7 @@ const NavMobile = styled.div<{ isNavVisible: boolean }>`
 `;
 
 const Nav = styled.nav<{ isNavVisible: boolean }>`
+  /* 모바일용 css */
   @media (max-width: 768px) {
     position: absolute;
     top: 72px;
@@ -142,7 +159,8 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
     padding: 20px 0;
     height: 100vh;
     overflow-y: auto;
-    /* 활성화 시켰을 때, 왼쪽으로 나오는 효과 */
+    /* 활성화 시켰을 때, 왼쪽으로 나오는 효과들 */
+    /* isNavVisible 상태가 아니면 화면 밖에 */
     transform: translateX(${(props) => (props.isNavVisible ? "0" : "100%")});
     opacity: ${(props) => (props.isNavVisible ? "1" : "0")};
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -166,6 +184,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
           font-weight: 700;
           position: relative;
 
+          /* hover 시 나오는 밑줄 효과를 가상요소를 이용해 표현 */
           &::before {
             content: "";
             width: calc(100% - 16px);
@@ -174,6 +193,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
             position: absolute;
             left: 8px;
             bottom: 10px;
+            /* hover 전에는 scaleX가 0 */
             transform: scaleX(0);
             transition: transform 0.3s ease;
           }
@@ -181,13 +201,15 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
           &:hover {
             color: ${(props) => props.theme.colors.white000};
             &::before {
+              /* a 링크 hover 시 밑줄 가상 효과 scale을 0.9로 늘려서 보여준다 */
               transform: scaleX(0.9);
             }
           }
         }
       }
     }
-
+    /* isNavVisible이면 즉, 모바일메뉴가 열리면, show 클래스가 추가된다
+        show 클래스가 추가되면 NavMobile 햄버거 메뉴 막대의 width를 반으로 줄이고, 흰색으로 변경한다. */
     &.show + ${NavMobile} span::before {
       width: 20px;
       background-color: ${(props) => props.theme.colors.white000};
@@ -209,11 +231,12 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
       color: ${(props) => props.theme.colors.black000};
       font-weight: 700;
 
-      /* 헤더 네브바 호버시 밑줄 스타일인데, 헤이트 0px로 비활성화해놨음 */
+      /* hover 시 나오는 밑줄 효과를 가상요소를 이용해 표현 */
       &::before {
         content: "";
         width: calc(100% - 16px);
-        height: 0px;
+        /* 웹에서는 밑줄이 나오지 않도록 0으로 해놨는데, 밑줄 필요 시 1px 설정 */
+        height: 0;
         background-color: ${(props) => props.theme.colors.rose300};
         position: absolute;
         left: 8px;
