@@ -164,7 +164,7 @@ const colors = {
 
 const fonts = {
   mainEngFont: "Montserrat",
-  mainKorFont: "nanumSquareNeo",
+  mainKorFont: "Freesentation-9Black",
   mainNumFont: "gmarket",
 };
 
