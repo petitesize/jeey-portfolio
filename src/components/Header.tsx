@@ -11,13 +11,13 @@ const Header = () => {
   };
 
   const headerNav = [
+    // {
+    //   title: "about",
+    //   url: "#about",
+    // },
     {
-      title: "intro",
-      url: "#intro",
-    },
-    {
-      title: "skill",
-      url: "#skill",
+      title: "skills",
+      url: "#skills",
     },
     {
       title: "site",
@@ -74,13 +74,14 @@ const HeaderWrapper = styled.header`
 
 const HeaderInner = styled.div<{ isNavVisible: boolean }>`
   display: flex;
+
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) =>
     props.isNavVisible ? "rgba(254, 168, 180,1)" : "rgba(255, 250, 245, 0.1)"};
   /* 헤더 불투명 효과 */
   backdrop-filter: blur(15px);
-  padding: 1rem;
+  padding: 1rem 80px;
 
   transition: background-color 0.3s ease;
 `;

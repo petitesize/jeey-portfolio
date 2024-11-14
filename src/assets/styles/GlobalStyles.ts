@@ -41,6 +41,8 @@ const GlobalStyles = createGlobalStyle`
 
   /* Custom Global Styles */
   body {
+    background-color: ${(props) => props.theme.colors.orange000};
+    color: ${(props) => props.theme.colors.black000};
     font-family: 'Montserrat', 'Pretendard-Regular' ,'RIDIBatang','gmarket', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -50,6 +52,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    
   }
 
   a {
