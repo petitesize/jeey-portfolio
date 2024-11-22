@@ -39,11 +39,31 @@ const GlobalStyles = createGlobalStyle`
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard-SemiBold';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Paperlogy-8ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
   /* Custom Global Styles */
   body {
     background-color: ${(props) => props.theme.colors.orange000};
     color: ${(props) => props.theme.colors.black000};
-    font-family: 'Montserrat', 'Pretendard-Regular' ,'RIDIBatang','gmarket', sans-serif;
+    font-family:  'Pretendard-Regular' ,'Paperlogy','gmarket', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
@@ -58,6 +78,18 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+    font-family: 'Paperlogy-8ExtraBold';
+  }
+
+  p {
+    text-decoration: none;
+    color: inherit;
+    font-family: 'Pretendard-Regular';
+  }
+
+  span {
+    color: inherit;
+    font-family: 'Pretendard-Regular';
   }
 
   img {
@@ -65,7 +97,16 @@ const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
- 
+   h4 {
+    font-family:'Pretendard-Regular';
+  }
+
+  h2 {
+    font-family: 'Paperlogy-8ExtraBold';
+  }
+
+
+
   @media (max-width: 768px) {
     body {
       font-size: 14px;

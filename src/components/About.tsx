@@ -10,7 +10,7 @@ const AboutSection = styled.section`
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  padding: 16px;
+  padding: 1rem;
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -117,7 +117,7 @@ const About = () => {
       //   현재 스크롤 한 시점의 top이 지정한 높이를 넘었으면 배열에 텍스트라인을 넣어준다.
       //   한 줄당 56px정도 차를 주어 스크롤을 내릴 때 마다 한 줄씩 나타나는 느낌을 주도록 한다.
       for (let i = 0; i < aboutText.desc.length; i++) {
-        if (top + i * 46 < scrollThreshold) {
+        if (top + i * 36 < scrollThreshold) {
           newVisibleLines.push(i);
         }
       }
@@ -135,10 +135,11 @@ const About = () => {
   const aboutText = {
     title: "프론트엔드 개발자 안지영",
     desc: [
-      "안녕하세요.",
-      "프론트엔드 개발자를 향해 매일 나아가는 안지영입니다.",
+      "안녕하세요, 소통을 가장 중요시하는 개발자 안지영입니다.",
+      <br />,
       "2년 간의 QA 업무로 프로젝트의 중심에서 사용자 경험 향상에 기여해왔으며",
-      "커뮤니케이션에 능통하고, 사용자 중심 사고 능력이 뛰어납니다.",
+      "사용자 중심 사고를 바탕으로 서비스를 개발하며, 커뮤니케이션에 능통합니다.",
+      <br />,
       "이제 직접 서비스를 개발하여 사용자에게 최적의 경험을 제공하고자 합니다.",
       "서비스가 어떻게 전달될 지를 고민하고 노력하며 항상 성장해나가겠습니다.",
     ],

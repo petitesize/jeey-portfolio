@@ -11,7 +11,8 @@ const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
   background-color: ${(props) => props.theme.colors.orange000};
   color: #333;
-  padding: 0 80px;
+  padding: 0 8rem;
+  /* width: 100%; */
 `;
 
 const Main = styled.main`
@@ -28,7 +29,6 @@ const HomeView = () => {
         <Intro />
         <About />
         <Skills />
-
         <Projects />
         <Contact />
       </Main>

@@ -15,7 +15,7 @@ const SkillsSection = styled.section`
 `;
 
 const SkillsTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   text-transform: uppercase;
   font-weight: 900;
   line-height: 1.6;
@@ -145,7 +145,7 @@ const Skills = () => {
             <ItemContainer>
               <SkillItem>
                 <Icon src="src/assets/icon/nodeJS.png" />
-                <StackName>Node.js</StackName>
+                <StackName>NodeJs</StackName>
               </SkillItem>
               <SkillItem>
                 <Icon src="src\assets\icon/express.png" />
@@ -162,11 +162,11 @@ const Skills = () => {
             </ItemContainer>
           </SkillCategory>
           <SkillCategory>
-            <CategoryTitle>Infra</CategoryTitle>
+            <CategoryTitle>Devops</CategoryTitle>
             <ItemContainer>
               <SkillItem>
                 <Icon src="src/assets/icon/aws.png" />
-                <StackName>AWS</StackName>
+                <StackName>AWS·S3</StackName>
               </SkillItem>
               <SkillItem>
                 <Icon src="src\assets\icon/vercel-svgrepo-com.png" />

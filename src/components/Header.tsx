@@ -19,13 +19,10 @@ const Header = () => {
       title: "skills",
       url: "#skills",
     },
+
     {
-      title: "site",
-      url: "#site",
-    },
-    {
-      title: "portfolio",
-      url: "#port",
+      title: "Projects",
+      url: "#projects",
     },
     {
       title: "contact",
