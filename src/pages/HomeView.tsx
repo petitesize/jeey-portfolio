@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
   background-color: ${(props) => props.theme.colors.orange000};
   color: #333;
-  padding: 0 8rem;
+  padding: 0 9rem;
   /* width: 100%; */
 `;
 

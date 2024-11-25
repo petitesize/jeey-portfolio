@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Title, TitleDivider } from "./Title";
+import { FixedTitle, TitleDivider } from "./Title";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // 섹션 전체 영영
@@ -8,6 +8,7 @@ const ProjectsSection = styled.section`
   width: 100%;
   height: 100%;
   padding: 1rem;
+  padding-top: 5.125rem;
 `;
 
 // 프로젝트 필터 영역
@@ -45,11 +46,17 @@ const FilterButton = styled.button<{ active: boolean }>`
     transform: translateY(-0.0675rem);
   }
 
+  &:active {
+    transform: scale(0.98) translate(0);
+  }
+
   @media (max-width: 768px) {
     height: 2rem;
     padding: 0.325rem 0.875rem;
     font-size: 0.875rem;
   }
+
+  transform: scale(0.98) translate(0);
 `;
 
 const ProjectGrid = styled.div`
@@ -283,7 +290,7 @@ const Projects = () => {
   return (
     <ProjectsSection id="projects">
       <TitleDivider />
-      <Title>Projects</Title>
+      <FixedTitle>Projects</FixedTitle>
       <Filter>
         {/* 배열 매핑 시 꼭 key 설정해주자 */}
         {/* activeFilter 상태와 filter 이름이 같은 필터를 true로 하여 활성화 */}
