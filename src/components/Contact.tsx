@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Title, TitleDivider } from "./Title";
 import Arrow from "./Arrow";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import githubIcon from "@assets/icon/github-41.svg";
+import resumeIcon from "@assets/icon/document.png";
+import blogIcon from "@assets/icon/tstory.svg";
 
 const ContactSection = styled.section`
   width: 100%;
@@ -14,9 +17,14 @@ const ContactSection = styled.section`
 
 const ContactContainer = styled.div`
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 2fr 2fr;
 
   grid-column-gap: 4rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 4rem;
+  }
 `;
 
 const ContentWrapper = styled.div``;
@@ -35,6 +43,10 @@ const Content = styled.p`
   margin-bottom: 0.625rem;
   line-height: 1.5;
   color: ${(props) => props.theme.colors.black000};
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const EmailLink = styled.a`
@@ -56,6 +68,10 @@ const ButtonWrapper = styled.div`
   margin-top: 3rem;
   grid-column-gap: 0.75rem;
   display: flex;
+
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
 `;
 
 const Button = styled.div`
@@ -116,6 +132,55 @@ const SocialWrapper = styled.div`
   display: flex;
   flex-direction: column;
   grid-column: span 1;
+  grid-row-gap: 0.75rem;
+  /* 알아보기 */
+  place-content: start flex-start;
+  place-items: flex-start start;
+`;
+
+const LinkWrapper = styled.div`
+  display: flex;
+
+  > img {
+    padding-right: 0.5rem;
+    display: inline-block;
+    height: 1.5rem;
+
+    &:hover + span {
+      box-shadow: none;
+    }
+
+    &.github {
+      padding-right: 0.4rem;
+      height: 1.6rem;
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+    opacity: 0.64;
+    transform: skewY(3deg);
+  }
+
+  span {
+    box-shadow: inset 0 -2.5px 0 0 ${(props) => props.theme.colors.rose300};
+    font-size: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-family: "Paperlogy-8ExtraBold";
+    &:hover {
+      box-shadow: none;
+    }
+  }
+`;
+
+const SocialLinks = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
 `;
 
 const Contact = () => {
@@ -129,7 +194,7 @@ const Contact = () => {
     setTimeout(() => setIsCopied(false), 1800);
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -182,9 +247,27 @@ const Contact = () => {
           </ButtonWrapper>
         </ContentWrapper>
         <SocialWrapper>
-          <a>View Full Resume(서핏 이력서)</a>
-          <a>Github</a>
-          <a>블로그</a>
+          <SocialLinks
+            target="_blank"
+            href="https://elice.works/shared-resume/account/6461/publicUuid/3796a353-0ac0-4934-8dab-dd9e94d92af5"
+          >
+            <LinkWrapper>
+              <img src={resumeIcon} alt="Resume Icon" />
+              <span>View Full Resume</span>
+            </LinkWrapper>
+          </SocialLinks>
+          <SocialLinks href="https://github.com/petitesize" target="_blank">
+            <LinkWrapper>
+              <img src={githubIcon} alt="github Icon" className="github" />
+              <span>Github</span>
+            </LinkWrapper>
+          </SocialLinks>
+          <SocialLinks href="https://jee0.tistory.com/" target="_blank">
+            <LinkWrapper>
+              <img src={blogIcon} alt="blog Icon" />
+              <span>Blog</span>
+            </LinkWrapper>
+          </SocialLinks>
         </SocialWrapper>
       </ContactContainer>
     </ContactSection>

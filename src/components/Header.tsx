@@ -40,7 +40,9 @@ const Header = () => {
           <ul>
             {headerNav.map((nav, key) => (
               <li key={key}>
-                <a href={nav.url}>{nav.title}</a>
+                <a href={nav.url} onClick={() => setIsNavVisible(false)}>
+                  {nav.title}
+                </a>
               </li>
             ))}
           </ul>
@@ -148,7 +150,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
   /* 모바일용 css */
   @media (max-width: 768px) {
     position: absolute;
-    top: 72px;
+    top: 80px;
     right: 0;
     background-color: rgba(254, 168, 180);
     backdrop-filter: blur(15px);
@@ -161,7 +163,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
     /* isNavVisible 상태가 아니면 화면 밖에 */
     transform: translateX(${(props) => (props.isNavVisible ? "0" : "100%")});
     opacity: ${(props) => (props.isNavVisible ? "1" : "0")};
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: visibility 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
     visibility: ${(props) => (props.isNavVisible ? "visible" : "hidden")};
 
     ul {
