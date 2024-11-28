@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const SkillsSection = styled.section`
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-start;
@@ -9,7 +8,7 @@ const SkillsSection = styled.section`
   flex-direction: column;
   padding: 80px 9rem;
   @media (max-width: 768px) {
-    justify-content: center;
+    padding: 80px 4rem;
   }
 `;
 
@@ -26,8 +25,8 @@ const SkillsTitle = styled.h2`
   width: 27%;
 
   @media (max-width: 768px) {
-    width: 100%;
     font-size: 2rem;
+    width: 100%;
   }
 `;
 
@@ -170,6 +169,14 @@ const Skills = () => {
               <SkillItem>
                 <Icon src="src\assets\icon/vercel-svgrepo-com.png" />
                 <StackName>Vercel</StackName>
+              </SkillItem>
+              <SkillItem>
+                <Icon src="src\assets\icon/icons8-gitlab-240.png" />
+                <StackName>Gitlab</StackName>
+              </SkillItem>
+              <SkillItem>
+                <Icon src="src\assets\icon/icons8jira240.png" />
+                <StackName>Jira</StackName>
               </SkillItem>
             </ItemContainer>
           </SkillCategory>

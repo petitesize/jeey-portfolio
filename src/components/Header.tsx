@@ -83,6 +83,10 @@ const HeaderInner = styled.div<{ isNavVisible: boolean }>`
   padding: 1rem 9rem;
 
   transition: background-color 0.3s ease;
+
+  @media (max-width: 768px) {
+    padding: 1rem 4rem;
+  }
 `;
 
 const Logo = styled.div<{ isNavVisible: boolean }>`

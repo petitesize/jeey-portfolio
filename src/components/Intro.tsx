@@ -6,6 +6,10 @@ const IntroSection = styled.section`
   padding: 80px 9rem 0 9rem;
   @media (max-width: 768px) {
     height: 75vh;
+
+    @media (max-width: 768px) {
+      padding: 80px 4rem 0 4rem;
+    }
   }
 `;
 

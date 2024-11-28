@@ -10,6 +10,9 @@ import blogIcon from "@assets/icon/tstory.svg";
 const ContactSection = styled.section`
   height: 100%;
   padding: 80px 9rem;
+  @media (max-width: 768px) {
+    padding: 80px 4rem;
+  }
 `;
 
 const ContactContainer = styled.div`

@@ -7,6 +7,9 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 const ProjectsSection = styled.section`
   height: 100%;
   padding: 80px 9rem;
+  @media (max-width: 768px) {
+    padding: 80px 4rem;
+  }
 `;
 
 // 프로젝트 필터 영역

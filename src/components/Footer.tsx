@@ -28,6 +28,9 @@ const Divider = styled.div`
   background-color: ${(props) => props.theme.colors.black000};
 
   margin: 0 9rem;
+  @media (max-width: 768px) {
+    margin: 0 4rem;
+  }
 `;
 
 const Logo = styled.div`

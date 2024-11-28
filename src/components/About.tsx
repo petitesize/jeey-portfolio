@@ -9,18 +9,23 @@ const AboutSection = styled.section`
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  padding: 80px 9rem;
+  padding: 80px 10rem;
+
+  @media screen and (max-width: 991px) {
+    padding: 80px 6rem;
+  }
 
   @media (max-width: 768px) {
     justify-content: center;
+
+    padding: 80px 4rem;
   }
-  /* padding-top: 10rem; */
 `;
 
 const AboutText = styled.div`
   width: 100%;
   height: 50vh;
-  background-color: ${(props) => props.theme.colors.black000};
+  background-color: #0000000a;
   color: ${(props) => props.theme.colors.orange000};
   display: flex;
   align-items: center;
@@ -28,14 +33,12 @@ const AboutText = styled.div`
   position: relative;
   flex-direction: row-reverse;
   border-radius: 1rem;
+  border: 2px solid ${(props) => props.theme.colors.black000};
 
   /* &:hover .text {
     opacity: 0;
   } */
 
-  &:hover .img {
-    /* filter: grayscale(0); */
-  }
   @media (max-width: 768px) {
     height: 80vh;
     flex-direction: column-reverse;
@@ -45,13 +48,19 @@ const AboutText = styled.div`
 const Text = styled.div`
   position: relative;
   z-index: 100;
-  width: 50%;
+  /* width: 50%; */
   transition: all 0.3s;
   font-size: 18px;
+  margin-right: 2rem;
+
+  @media screen and (max-width: 991px) {
+    padding: 0 1rem;
+  }
 
   @media (max-width: 768px) {
     font-size: 24px;
-    width: 80%;
+    /* width: 80%; */
+    padding: 0 1rem;
   }
 `;
 
@@ -63,28 +72,54 @@ const ImgWrapper = styled.div`
   /* filter: grayscale(100%); */
   transition: all 0.3s;
 
-  @media (max-width: 320px) {
-    width: 20vh;
-    height: 20vh;
+  @media screen and (max-width: 991px) {
+    margin: 0 0.5rem;
   }
 `;
 
 const TextLine = styled.p<{ isVisible: boolean }>`
-  font-size: 16px;
+  color: ${(props) => props.theme.colors.black000};
+  letter-spacing: 0.006em;
+  font-size: 1rem;
   opacity: 0; // 처음에는 보이지 않도록 설정
   /* isVisible일 때에만 fallDown 애니메이션 적용 */
   animation: ${(props) => props.isVisible && fallDown} 0.6s ease forwards;
 
   &:not(:first-child) {
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 0.925rem;
     text-align: center;
   }
 
   font-family: "Pretendard-Regular";
+
+  > strong {
+    font-size: 1.125rem;
+    /* box-shadow: inset 0 -2px 0 0 ${(props) => props.theme.colors.rose100}; */
+    /* color: ${(props) => props.theme.colors.white000}; */
+    transition: box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+      transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+      opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: inline-block;
+    font-family: "Pretendard-SemiBold";
+
+    &:hover {
+      box-shadow: none;
+      opacity: 0.64;
+      transform: skewY(3deg);
+    }
+
+    @media screen and (max-width: 991px) {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 991px) {
+    font-size: 0.9rem;
+  }
 `;
 
 // 위에서 아래로 내려오는 애니메이션
@@ -134,13 +169,13 @@ const About = () => {
   const aboutText = {
     title: "프론트엔드 개발자 안지영",
     desc: [
-      "안녕하세요, 소통을 가장 중요시하는 개발자 안지영입니다.",
-      <br />,
-      "2년 간의 QA 업무로 프로젝트의 중심에서 사용자 경험 향상에 기여해왔으며",
-      "사용자 중심 사고를 바탕으로 서비스를 개발하며, 커뮤니케이션에 능통합니다.",
-      <br />,
-      "이제 직접 서비스를 개발하여 사용자에게 최적의 경험을 제공하고자 합니다.",
-      "서비스가 어떻게 전달될 지를 고민하고 노력하며 항상 성장해나가겠습니다.",
+      "안녕하세요, <strong>소통</strong>을 중요시하는 개발자 안지영입니다. ",
+      "<br />",
+      "2년 간의 QA 업무로 프로젝트의 중심에서 <strong>사용자 경험</strong> 향상에 기여해왔으며",
+      "사용자 중심 사고를 바탕으로 서비스를 개발하며, <strong>커뮤니케이션</strong>에 능통합니다.",
+      "<br />",
+      "이제, 직접 서비스를 개발하여 사용자에게 최적의 경험을 제공하고자 합니다.",
+      "서비스가 어떻게 전달될 지를 고민하고 도전하여 항상 성장해나가겠습니다.",
     ],
   };
 
@@ -150,9 +185,11 @@ const About = () => {
       <AboutText>
         <Text className="text" ref={textRef}>
           {aboutText.desc.map((line, index) => (
-            <TextLine key={index} isVisible={visibleLines.includes(index)}>
-              {line}
-            </TextLine>
+            <TextLine
+              key={index}
+              isVisible={visibleLines.includes(index)}
+              dangerouslySetInnerHTML={{ __html: line }}
+            ></TextLine>
           ))}
         </Text>
         <ImgWrapper className="img">
