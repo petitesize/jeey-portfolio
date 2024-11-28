@@ -34,7 +34,7 @@ const Header = () => {
     <HeaderWrapper>
       <HeaderInner isNavVisible={isNavVisible}>
         <Logo isNavVisible={isNavVisible}>
-          <a href="/">JY's Portfolio</a>
+          <a href="/">JY</a>
         </Logo>
         <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
           <ul>
@@ -80,7 +80,7 @@ const HeaderInner = styled.div<{ isNavVisible: boolean }>`
     props.isNavVisible ? "rgba(254, 168, 180,1)" : "rgba(255, 250, 245, 0.1)"};
   /* 헤더 불투명 효과 */
   backdrop-filter: blur(15px);
-  padding: 1rem 80px;
+  padding: 1rem 9rem;
 
   transition: background-color 0.3s ease;
 `;
@@ -91,12 +91,15 @@ const Logo = styled.div<{ isNavVisible: boolean }>`
   text-align: center;
   /* text-transform: uppercase; */
   line-height: 1;
-  transition: color 0.5s ease;
+  transition: color 0.5s ease, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   color: ${(props) => (props.isNavVisible ? "white" : "#ff99ad ")};
   font-weight: 900;
   em {
     font-size: 10px;
     display: block;
+  }
+  &:hover {
+    transform: rotate(30deg);
   }
 `;
 

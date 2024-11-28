@@ -6,19 +6,21 @@ import Contact from "@components/Contact";
 import styled from "styled-components";
 import Intro from "@/components/Intro";
 import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
 
 const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
   background-color: ${(props) => props.theme.colors.orange000};
   color: #333;
-  padding: 0 9rem;
+  /* padding: 0 9rem; */
   /* width: 100%; */
+  overflow-x: hidden;
 `;
 
 const Main = styled.main`
   background-color: ${(props) => props.theme.colors.orange000};
   /* height: 100vh; */
-  /* width: 100vw; */
+  /* width: 100% */
 `;
 
 const HomeView = () => {
@@ -32,6 +34,7 @@ const HomeView = () => {
         <Projects />
         <Contact />
       </Main>
+      <Footer />
     </Wrapper>
   );
 };

@@ -8,11 +8,8 @@ import resumeIcon from "@assets/icon/document.png";
 import blogIcon from "@assets/icon/tstory.svg";
 
 const ContactSection = styled.section`
-  width: 100%;
   height: 100%;
-  padding: 1rem;
-  padding-top: 5.125rem;
-  padding-bottom: 5.125rem;
+  padding: 80px 9rem;
 `;
 
 const ContactContainer = styled.div`
@@ -34,6 +31,10 @@ const SubHeading = styled.h2`
   color: ${(props) => props.theme.colors.black000};
   margin-bottom: 4rem;
   margin-top: -1rem;
+
+  @media (max-width: 768px) {
+    font-size: 3rem;
+  }
 `;
 
 const Content = styled.p`

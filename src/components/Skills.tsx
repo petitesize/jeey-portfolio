@@ -7,8 +7,7 @@ const SkillsSection = styled.section`
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  padding: 16px;
-  padding-top: 80px;
+  padding: 80px 9rem;
   @media (max-width: 768px) {
     justify-content: center;
   }

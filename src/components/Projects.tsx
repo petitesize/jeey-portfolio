@@ -5,10 +5,8 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 // 섹션 전체 영영
 const ProjectsSection = styled.section`
-  width: 100%;
   height: 100%;
-  padding: 1rem;
-  padding-top: 5.125rem;
+  padding: 80px 9rem;
 `;
 
 // 프로젝트 필터 영역

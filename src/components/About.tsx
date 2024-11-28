@@ -4,13 +4,12 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 
 const AboutSection = styled.section`
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   flex-direction: column;
-  padding: 1rem;
+  padding: 80px 9rem;
 
   @media (max-width: 768px) {
     justify-content: center;

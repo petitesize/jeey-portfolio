@@ -2,7 +2,8 @@ import { styled } from "styled-components";
 
 const IntroSection = styled.section`
   height: 100vh;
-  padding-top: 80px;
+  /* padding-top: 80px; */
+  padding: 80px 9rem 0 9rem;
   @media (max-width: 768px) {
     height: 75vh;
   }
