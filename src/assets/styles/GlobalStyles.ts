@@ -92,6 +92,8 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: inherit;
     font-family: 'Pretendard-Regular';
+
+    
   }
 
   span {
@@ -120,6 +122,14 @@ const GlobalStyles = createGlobalStyle`
       line-height: 1.4;
     }
   }
+
+  &::selection {
+    background: ${(props) => props.theme.colors.rose100};
+    color: ${(props) => props.theme.colors.black000};
+  }
+
+
+  
 `;
 
 export default GlobalStyles;

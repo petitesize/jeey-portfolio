@@ -42,7 +42,7 @@ const IntroTitle = styled.h1`
 
 const Intro = () => {
   return (
-    <IntroSection>
+    <IntroSection id="home">
       <TitleWrapper>
         <IntroTitle>Jeeyoung</IntroTitle>
         <IntroTitle>Frontend Developer</IntroTitle>

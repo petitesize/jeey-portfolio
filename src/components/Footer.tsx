@@ -86,7 +86,7 @@ const Footer = () => {
       <FooterContent>
         <div>© 2024 to JEEYOUNG</div>
         <Logo>
-          <a href="/">JY</a>
+          <a href="#home">JY</a>
         </Logo>
         <div>
           <IconWrapper>

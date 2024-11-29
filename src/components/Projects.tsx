@@ -123,6 +123,15 @@ const ImageWrapper = styled.div`
       rgb(255, 222, 226, 0.2)
     );
   }
+  &.gold {
+    background-image: linear-gradient(
+      -45deg,
+      rgb(170, 147, 136, 0.9),
+      rgb(232, 222, 212, 1),
+      rgb(170, 147, 136, 0.6),
+      rgb(232, 222, 212, 1)
+    );
+  }
 
   @media (max-width: 768px) {
     padding: 1rem 2rem;
@@ -203,44 +212,6 @@ const ProjectTitle = styled.div`
   }
 `;
 
-// const Description = styled.div`
-//   display: flex; /* 기본 숨김 */
-//   justify-content: center;
-//   align-items: center;
-//   position: absolute;
-//   color: black;
-//   text-align: center;
-//   padding: 1rem;
-//   backface-visibility: hidden; /* 설명은 절대로 뒤집히지 않게 */
-//   z-index: 100;
-
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   opacity: 0; /* 처음에는 투명하게 */
-//   visibility: hidden; /* 처음에는 숨김 */
-// `;
-
-// const BackfaceWrapper = styled.div`
-//   background-color: ${(props) =>
-//     props.theme.colors.orange050}; /* 뒷면의 배경색 */
-//   color: white;
-//   padding: 2rem;
-//   border-radius: 0.75rem;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   z-index: 1; /* Description이 BackfaceWrapper 위에 보이도록 설정 */
-//   opacity: 0;
-//   visibility: hidden;
-// `;
-
 type FilterType = "All" | "Team" | "Personal";
 
 const Projects = () => {
@@ -256,33 +227,47 @@ const Projects = () => {
       tags: "#React #TypeScript #Recoil #NodeJs #MongoDB #Vercel #AWS·S3",
       img: "src/assets/project/carebuddy.png",
       type: "Team",
+      link: "#",
     },
     {
       id: 2,
+      color: "gold",
+      title: "JY Portfolio",
+      description: "포트폴리오 웹사이트",
+      tags: "#React #Typescript #Responsive",
+      img: "src/assets/project/portjeey.png",
+      type: "Personal",
+      link: "#",
+    },
+    {
+      id: 3,
       color: "white",
       title: "PhotoSplash",
       description: "Unsplash Image API를 활용한 이미지 검색 사이트",
       tags: "#React #Typescript #Recoil #SCSS #Axios #Node.js",
       img: "src/assets/project/PhotoSplash.png",
       type: "Personal",
+      link: "#",
     },
     {
-      id: 3,
+      id: 4,
       color: "pink",
       title: "Jwitter",
       description: "X(Twitter) 클론 코딩",
       tags: "#React #JavaScipt #Firebase #Styled-components",
       img: "src/assets/project/Jwitter.png",
       type: "Personal",
+      link: "#",
     },
     {
-      id: 3,
+      id: 5,
       color: "yellow",
       title: "Flora & Dér",
       description: "꽃다발 온라인 커스텀 쇼핑몰 사이트",
       tags: "#ES6 #JavaScipt #MongoDB #HTML&CSS #AWS·S3",
       img: "src/assets/project/FloraDer.png",
       type: "Team",
+      link: "#",
     },
   ];
 
@@ -323,6 +308,7 @@ type Project = {
   tags: string;
   img: string;
   type: "Team" | "Personal";
+  link: string;
 };
 
 // 프로젝트 리스트 컴포넌트 프롭 타입 정의
@@ -385,7 +371,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, filter }) => {
           classNames="fade"
         >
           <ProjectLinkWrapper
-            href="#"
+            href={project.link}
             isFirst={index === 0 && filter === "All"}
           >
             <ProjectCard key={project.id} className="fade-in">

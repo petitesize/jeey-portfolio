@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HomeView from "@/pages/HomeView";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import theme from "./assets/styles/theme";
 import GlobalStyles from "./assets/styles/GlobalStyles";
+import lenis from "./utils/lenis";
+import link from "./utils/link";
 
 function App() {
+  useEffect(() => {
+    lenis();
+    link();
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />

@@ -1,40 +1,48 @@
 // 헤더완료
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const Header = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
 
+  useEffect(() => {
+    // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 300);
+  }, []);
+
   const headerNav = [
     // {
-    //   title: "about",
-    //   url: "#about",
+    //   title: "home",
+    //   url: "#home",
     // },
     {
-      title: "skills",
+      title: "SKILLS",
       url: "#skills",
     },
 
     {
-      title: "Projects",
+      title: "PROJECTS",
       url: "#projects",
     },
     {
-      title: "contact",
+      title: "CONTACT",
       url: "#contact",
     },
   ];
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper isLoaded={isLoaded}>
       <HeaderInner isNavVisible={isNavVisible}>
         <Logo isNavVisible={isNavVisible}>
-          <a href="/">JY</a>
+          <a href="#home">JY</a>
         </Logo>
         <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
           <ul>
@@ -63,12 +71,14 @@ const Header = () => {
 
 export default Header;
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header<{ isLoaded: boolean }>`
   position: fixed;
   left: 0;
-  top: 0;
+  top: ${(props) => (props.isLoaded ? "0" : "-80px")};
+  transition: top 1s ease-out;
   width: 100%;
   z-index: 10000;
+  will-change: transform;
 `;
 
 const HeaderInner = styled.div<{ isNavVisible: boolean }>`
@@ -186,7 +196,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
           display: inline-block;
           padding: 10px;
           color: ${(props) => props.theme.colors.black000};
-          text-transform: uppercase;
+          /* text-transform: uppercase; */
           font-size: 16px;
           font-weight: 700;
           position: relative;
@@ -207,6 +217,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
 
           &:hover {
             color: ${(props) => props.theme.colors.white000};
+
             &::before {
               /* a 링크 hover 시 밑줄 가상 효과 scale을 0.9로 늘려서 보여준다 */
               transform: scaleX(0.9);
@@ -231,7 +242,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
     display: inline;
 
     a {
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       font-size: 16px;
       padding: 14px;
       position: relative;
@@ -255,6 +266,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
       &:hover {
         color: ${(props) => (props.isNavVisible ? "#fff " : `#ff99ad`)};
         transition: all 0.3s ease;
+
         &::before {
           transform: scaleX(0.9);
           color: ${(props) => props.theme.colors.white000};
