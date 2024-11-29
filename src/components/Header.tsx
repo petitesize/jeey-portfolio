@@ -1,18 +1,36 @@
 // 헤더완료
 
 import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const location = useLocation(); // 현재 페이지 위치
+
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
 
+  const navigate = useNavigate(); // useNavigate를 사용하여 페이지 이동
+
+  // ProjectDetail 페이지에서 HomeView로 이동하고 섹션으로 이동
+  const handleNavClick = (id: string) => {
+    // ProjectDetail 페이지에서 HomeView로 이동하고 섹션으로 이동
+    if (location.pathname.startsWith("/project")) {
+      navigate("/"); // HomeView로 이동
+      setTimeout(() => {
+        const section = document.querySelector(`${id}`);
+        if (section) {
+          section.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300); // 프로젝트 컴포넌트 로딩 대기 시간
+    }
+  };
+
   useEffect(() => {
-    // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
     setTimeout(() => {
       setIsLoaded(true);
     }, 300);
@@ -42,13 +60,26 @@ const Header = () => {
     <HeaderWrapper isLoaded={isLoaded}>
       <HeaderInner isNavVisible={isNavVisible}>
         <Logo isNavVisible={isNavVisible}>
-          <a href="#home">JY</a>
+          <a
+            href="#home"
+            onClick={() => {
+              handleNavClick("#home");
+            }}
+          >
+            JY
+          </a>
         </Logo>
         <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
           <ul>
             {headerNav.map((nav, key) => (
               <li key={key}>
-                <a href={nav.url} onClick={() => setIsNavVisible(false)}>
+                <a
+                  href={nav.url}
+                  onClick={() => {
+                    handleNavClick(nav.url);
+                    setIsNavVisible(false);
+                  }}
+                >
                   {nav.title}
                 </a>
               </li>

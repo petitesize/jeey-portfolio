@@ -5,21 +5,29 @@ import { ThemeProvider } from "styled-components";
 import theme from "./assets/styles/theme";
 import GlobalStyles from "./assets/styles/GlobalStyles";
 import lenis from "./utils/lenis";
-import link from "./utils/link";
+import ProjectDetail from "./components/ProjectDetail";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   useEffect(() => {
     lenis();
-    link();
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route index path="/" element={<HomeView />}></Route>
+          <Route
+            index
+            path="/project/:projectId"
+            element={<ProjectDetail />}
+          ></Route>
         </Routes>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );

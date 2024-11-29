@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FixedTitle, TitleDivider } from "./Title";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Link } from "react-router-dom";
 
 // 섹션 전체 영영
 const ProjectsSection = styled.section`
@@ -220,7 +221,7 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
-      id: 1,
+      id: "carebuddy",
       color: "green",
       title: "Carebuddy",
       description: "반려동물 질병 커뮤니티 플랫폼, 케어버디",
@@ -230,7 +231,7 @@ const Projects = () => {
       link: "#",
     },
     {
-      id: 2,
+      id: "JYportfolio",
       color: "gold",
       title: "JY Portfolio",
       description: "포트폴리오 웹사이트",
@@ -240,7 +241,7 @@ const Projects = () => {
       link: "#",
     },
     {
-      id: 3,
+      id: "photoSplash",
       color: "white",
       title: "PhotoSplash",
       description: "Unsplash Image API를 활용한 이미지 검색 사이트",
@@ -250,7 +251,7 @@ const Projects = () => {
       link: "#",
     },
     {
-      id: 4,
+      id: "jwitter",
       color: "pink",
       title: "Jwitter",
       description: "X(Twitter) 클론 코딩",
@@ -260,7 +261,7 @@ const Projects = () => {
       link: "#",
     },
     {
-      id: 5,
+      id: "floraNder",
       color: "yellow",
       title: "Flora & Dér",
       description: "꽃다발 온라인 커스텀 쇼핑몰 사이트",
@@ -301,7 +302,7 @@ const Projects = () => {
 export default Projects;
 
 type Project = {
-  id: number;
+  id: number | string;
   color: string;
   title: string;
   description: string;
@@ -317,7 +318,7 @@ type ProjectListProps = {
   filter: FilterType;
 };
 
-const ProjectLinkWrapper = styled.a<{ isFirst: boolean }>`
+const ProjectLinkWrapper = styled(Link)<{ isFirst: boolean }>`
   transition: all, opacity 300ms;
   /* 주요 프로젝트의 경우 grid-column을 2칸을 차지하게 만들어서 강조할 것 */
   ${({ isFirst }) =>
@@ -371,7 +372,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, filter }) => {
           classNames="fade"
         >
           <ProjectLinkWrapper
-            href={project.link}
+            to={`/project/${project.id}`}
             isFirst={index === 0 && filter === "All"}
           >
             <ProjectCard key={project.id} className="fade-in">

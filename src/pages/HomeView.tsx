@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Header from "@components/Header";
 import About from "@/components/About";
 import Projects from "@components/Projects";
 import Contact from "@components/Contact";
 import styled from "styled-components";
 import Intro from "@/components/Intro";
 import Skills from "@/components/Skills";
-import Footer from "@/components/Footer";
+import link from "@/utils/link";
 
 const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
@@ -38,13 +37,13 @@ const HomeView = () => {
     // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
     setTimeout(() => {
       setIsLoaded(true);
-      setTimeout(() => setIsOpacity(true), 500);
+      setTimeout(() => setIsOpacity(true), 300);
     }, 300);
+    link(); // 현재 페이지에서의 해시 값을 감지할 것이기 때문에 여기로 이동
   }, []);
 
   return (
     <Wrapper>
-      <Header />
       <AnimationWrapper isLoaded={isLoaded}>
         <Main isLoaded={isOpacity}>
           <Intro />
@@ -54,8 +53,6 @@ const HomeView = () => {
           <Contact />
         </Main>
       </AnimationWrapper>
-
-      <Footer />
     </Wrapper>
   );
 };
