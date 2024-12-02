@@ -92,8 +92,11 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: inherit;
     font-family: 'Pretendard-Regular';
-
-    
+    letter-spacing: .006em;
+    line-height: 1.6;
+  }
+  em {
+    font-family: 'Pretendard-SemiBold';
   }
 
   span {
@@ -111,6 +114,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
+    font-family: 'Paperlogy-8ExtraBold';
+  }
+  h3 {
     font-family: 'Paperlogy-8ExtraBold';
   }
 
