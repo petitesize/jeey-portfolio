@@ -1,16 +1,128 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import CarebuddyImg from "@assets/project/carebuddy.png";
-import C1 from "@assets/project/details/c1.png";
-import C2 from "@assets/project/details/c2.png";
-import C3 from "@assets/project/details/c3.png";
-import C4 from "@assets/project/details/c4.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Navigation, Pagination } from "swiper/modules";
+import { projectDetailData } from "@/constants";
+import { useParams } from "react-router-dom";
+
+const ProjectDetail = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isOpacity, setIsOpacity] = useState(false);
+
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // URL에서 projectId를 가져와서, 해당 id와 동일한 id를 프로젝트 데이터에서 찾아옴
+  const { projectId } = useParams();
+  const project = projectDetailData.find((p) => p.id === projectId);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePosition({ x, y });
+  };
+
+  window.scrollTo(0, 0);
+
+  useEffect(() => {
+    // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
+    setTimeout(() => {
+      setIsLoaded(true);
+      setTimeout(() => setIsOpacity(true), 300);
+    }, 300);
+  }, []);
+
+  if (!project) {
+    return <div></div>;
+  }
+
+  return (
+    <DetailWrapper>
+      <AnimationWrapper isLoaded={isLoaded}>
+        <Main isLoaded={isOpacity}>
+          <div>
+            <Title>{project.title}</Title>
+          </div>
+          <ButtonWrapper>
+            {project.buttons.map((button, index) => (
+              <Button onMouseMove={handleMouseMove} key={index}>
+                <a target="_blank" href={button.link}>
+                  {button.text}
+                </a>
+                <ShineEffect
+                  className="shine-effect"
+                  style={{
+                    transform: `translate3d(${mousePosition.x - 50}px, ${
+                      mousePosition.y - 50
+                    }px, 0)`,
+                  }}
+                />
+              </Button>
+            ))}
+          </ButtonWrapper>
+          <ImageWrapper className={project.backgroundColor}>
+            <img src={project.img}></img>
+          </ImageWrapper>
+          <div>
+            <Header>Overview</Header>
+
+            <div>
+              <TextWrapper>
+                {project.desc.map((desc, index) => (
+                  <Text key={index}>{desc}</Text>
+                ))}
+              </TextWrapper>
+              {project.contribution && (
+                <>
+                  <Contribution>Major Contribution</Contribution>
+                  <ContributionList>
+                    {project.contribution.map((c, index) => (
+                      <li key={index}>{c}</li>
+                    ))}
+                  </ContributionList>
+                </>
+              )}
+            </div>
+          </div>
+
+          <Divider />
+          <div>
+            <Header>Project Details</Header>
+            <DetailsList>
+              {project.detailsDesc.map((desc, index) => (
+                <li dangerouslySetInnerHTML={{ __html: desc }} key={index}></li>
+              ))}
+            </DetailsList>
+          </div>
+
+          <CarouselWrapper>
+            <Swiper
+              modules={[Pagination, Navigation]}
+              pagination={{ clickable: true }}
+              navigation
+              loop={true} // 슬라이드 무한 반복
+              spaceBetween={50} // 슬라이드 간격 설정
+              slidesPerView={1.4} // 한 번에 보여줄 슬라이드 수 (1.5개 슬라이드 보이게 설정)
+              centeredSlides={true} // 중앙 정렬하여 양 옆에 슬라이드가 보이도록 설정
+            >
+              {project.detailsImg.map((img, index) => (
+                <SwiperSlide key={index}>
+                  <img src={img} alt="Slide 1" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </CarouselWrapper>
+        </Main>
+      </AnimationWrapper>
+    </DetailWrapper>
+  );
+};
+
+export default ProjectDetail;
 
 const DetailWrapper = styled.div`
   padding: 80px 9rem;
@@ -40,7 +152,6 @@ const Contribution = styled.h3`
 `;
 
 const ContributionList = styled.ul`
-  margin-bottom: 4rem;
   line-height: 1.6;
 `;
 
@@ -72,167 +183,6 @@ const Main = styled.main<{ isLoaded: boolean }>`
   opacity: ${(props) => (props.isLoaded ? "1" : "0")};
   transition: opacity 1.5s ease-in;
 `;
-
-const ProjectDetail = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isOpacity, setIsOpacity] = useState(false);
-
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setMousePosition({ x, y });
-  };
-
-  window.scrollTo(0, 0);
-  useEffect(() => {
-    // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
-    setTimeout(() => {
-      setIsLoaded(true);
-      setTimeout(() => setIsOpacity(true), 300);
-    }, 300);
-  }, []);
-
-  return (
-    <DetailWrapper>
-      <AnimationWrapper isLoaded={isLoaded}>
-        <Main isLoaded={isOpacity}>
-          <div>
-            <Title>반려동물 질병 커뮤니티 플랫폼, Carebuddy</Title>
-          </div>
-          <ButtonWrapper>
-            <Button onMouseMove={handleMouseMove}>
-              <a href="mailto:petitesize22@gmail.com">사이트 방문</a>
-              <ShineEffect
-                className="shine-effect"
-                style={{
-                  transform: `translate3d(${mousePosition.x - 50}px, ${
-                    mousePosition.y - 50
-                  }px, 0)`,
-                }}
-              />
-            </Button>
-            <Button onMouseMove={handleMouseMove}>
-              <a>GitHub</a>
-              <ShineEffect
-                className="shine-effect"
-                style={{
-                  transform: `translate3d(${mousePosition.x - 50}px, ${
-                    mousePosition.y - 50
-                  }px, 0)`,
-                }}
-              />
-            </Button>
-            <Button onMouseMove={handleMouseMove}>
-              <a>PDF 문서</a>
-              <ShineEffect
-                className="shine-effect"
-                style={{
-                  transform: `translate3d(${mousePosition.x - 50}px, ${
-                    mousePosition.y - 50
-                  }px, 0)`,
-                }}
-              />
-            </Button>
-          </ButtonWrapper>
-          <ImageWrapper className="green">
-            <img src={CarebuddyImg}></img>
-          </ImageWrapper>
-          <div>
-            <Header>Overview</Header>
-
-            <div>
-              <TextWrapper>
-                <Text>
-                  케어버디는 같은 아픔을 가진 반려동물의 보호자들의
-                  커뮤니티이며, 건강 다이어리를 통해 반려동물의 건강을 관리할 수
-                  있는 플랫폼입니다.
-                </Text>
-                <Text>
-                  질병 간 커뮤니티 그룹 가입을 통해 보호자 간의 소통을 지원하며,
-                  진료 기록을 관리할 수 있는 기능을 통해 반려동물 건강 관리에
-                  도움을 주기 위해 만들어진 서비스입니다.
-                </Text>
-                <Text>
-                  또한, 지역 별 동물 병원 및 동물 약국 검색 기능으로 편리한 동물
-                  의료 정보 검색을 제공합니다.
-                </Text>
-              </TextWrapper>
-              <Contribution>Major Contribution</Contribution>
-              <ContributionList>
-                <li>프로젝트 기획 및 UI/UX 디자인</li>
-                <li>반려동물 프로필 & 진료 기록 CRUD</li>
-                <li>커뮤니티 게시글 등록</li>
-                <li>전국 동물병원 및 약국 검색</li>
-                <li>AWS S3 이미지 URL 생성 & 업로드</li>
-              </ContributionList>
-            </div>
-          </div>
-
-          <Divider />
-          <div>
-            <Header>Project Details</Header>
-            <DetailsList>
-              <li>
-                <em>Recoil</em> 사용하여 전역 상태 관리
-              </li>
-              <li>
-                <em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능
-                구현
-              </li>
-              <li>
-                <em>Vite</em> 기반 ESLint와 TypeScript를 적용한 개발 환경 구성
-              </li>
-              <li>
-                <em>ESLint</em>로 코드 품질 유지 및 <em>TypeScript</em>를 통해
-                컴파일 단계에서 타입 안정성 보장
-              </li>
-              <li>
-                <em>react-icons / styled-components</em> 등 사용하여 스타일링
-              </li>
-              <li>
-                <em>rc-pagination</em> 사용하여 리스트의 페이지네이션 처리 및
-                테이블 컴포넌트 공통화
-              </li>
-              <li>
-                <em>swiper</em> 사용하여 반려동물 프로필 슬라이더 UI로 구현
-              </li>
-            </DetailsList>
-          </div>
-
-          <CarouselWrapper>
-            <Swiper
-              modules={[Pagination, Navigation]}
-              pagination={{ clickable: true }}
-              navigation
-              loop={true} // 슬라이드 무한 반복
-              spaceBetween={50} // 슬라이드 간격 설정
-              slidesPerView={1.4} // 한 번에 보여줄 슬라이드 수 (1.5개 슬라이드 보이게 설정)
-              centeredSlides={true} // 중앙 정렬하여 양 옆에 슬라이드가 보이도록 설정
-            >
-              <SwiperSlide>
-                <img src={C2} alt="Slide 1" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={C1} alt="Slide 2" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={C3} alt="Slide 3" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={C4} alt="Slide 3" />
-              </SwiperSlide>
-            </Swiper>
-          </CarouselWrapper>
-        </Main>
-      </AnimationWrapper>
-    </DetailWrapper>
-  );
-};
-
-export default ProjectDetail;
 
 const ButtonWrapper = styled.div`
   margin: 3rem 0;
@@ -377,6 +327,7 @@ const ImageWrapper = styled.div`
 const Divider = styled.div`
   background-color: ${(props) => props.theme.colors.black000};
   height: 0.0625rem;
+  margin-top: 4rem;
 `;
 
 const CarouselWrapper = styled.div`
