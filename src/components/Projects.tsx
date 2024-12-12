@@ -255,7 +255,7 @@ const Projects = () => {
       color: "pink",
       title: "Jwitter",
       description: "X(Twitter) 클론 코딩",
-      tags: "#React #JavaScipt #Firebase #Styled-components",
+      tags: "#React #Typescript #Firebase #Styled-components",
       img: "src/assets/project/Jwitter.png",
       type: "Personal",
       link: "#",

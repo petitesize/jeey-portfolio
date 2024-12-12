@@ -1,11 +1,22 @@
 import CarebuddyImg from "@assets/project/carebuddy.png";
 import JYPortImg from "@assets/project/portjeey.png";
+import PhotoSplash from "@assets/project/PhotoSplash.png";
+import Jwitter from "@assets/project/Jwitter.png";
+import FloraDer from "@assets/project/FloraDer.png";
 import C1 from "@assets/project/details/c1.png";
 import C2 from "@assets/project/details/c2.png";
 import C3 from "@assets/project/details/c3.png";
 import C4 from "@assets/project/details/c4.png";
 import P1 from "@assets/project/details/p1.png";
 import P2 from "@assets/project/details/p2.png";
+import PS1 from "@assets/project/details/ps1.png";
+import PS2 from "@assets/project/details/ps2.png";
+import J1 from "@assets/project/details/j1.png";
+import J2 from "@assets/project/details/j2.png";
+import F1 from "@assets/project/details/f1.png";
+import F2 from "@assets/project/details/f2.png";
+import F3 from "@assets/project/details/f3.png";
+import F4 from "@assets/project/details/f4.png";
 
 export const projectDetailData = [
   {
@@ -66,5 +77,83 @@ export const projectDetailData = [
       "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
     ],
     detailsImg: [P1, P2],
+  },
+
+  {
+    id: "photoSplash",
+    backgroundColor: "white",
+    img: PhotoSplash,
+    title: "이미지 검색 사이트, PhotoSplash",
+    buttons: [
+      { text: "GitHub", link: "https://github.com/petitesize/ImageSplash" },
+    ],
+    desc: [
+      "Unsplash Image API를 활용한 이미지 검색 사이트 만들기",
+      "오픈 API와 Recoil 활용하여 키워드에 맞는 이미지를 검색하고, 북마크에 이미지를 저장할 수 있습니다.",
+    ],
+
+    detailsDesc: [
+      "<em>Recoil</em> 중앙집중식 상태관리 라이브러리를 사용하여 이미지 검색 구현",
+      "<em>SCSS</em>를 활용한 스타일링",
+      "<em>react-simple-toasts</em> 모듈을 활용하여 사용자 알림 UI 구현",
+      "<em>Axios</em>를 활용하여 오픈 API 호출",
+    ],
+    detailsImg: [PS2, PS1],
+  },
+
+  {
+    id: "jwitter",
+    backgroundColor: "pink",
+    img: Jwitter,
+    title: "X(Twitter) 클론 코딩",
+    buttons: [
+      { text: "GitHub", link: "https://github.com/petitesize/Jwitter" },
+    ],
+    desc: [
+      "Firebase를 활용법을 익히기 위한 X(Twitter) 클론 코딩",
+      "로그인, 회원가입 및 게시물 CRUD 등의 SNS 기본 기능을 X(Twitter)를 클론 코딩하여 구현한 웹사이트",
+    ],
+
+    detailsDesc: [
+      "<em>Firebase</em>를 활용하여 사용자 인증 및 실시간 데이터베이스 연동",
+      "<em>Styled-components</em>를 활용한 스타일링",
+      "<em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
+      "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
+    ],
+    detailsImg: [J1, J2],
+  },
+
+  {
+    id: "floraNder",
+    backgroundColor: "yellow",
+    img: FloraDer,
+    title: "꽃다발 온라인 커스텀 쇼핑몰 사이트, Flora & Dér",
+    buttons: [
+      { text: "GitHub", link: "https://github.com/petitesize/flowerNderFront" },
+      {
+        text: "PDF 문서",
+        link: "https://drive.google.com/file/d/1NmhgTKe2lAvaysK-uOPqrG697KrmVm7w/view",
+      },
+    ],
+    desc: [
+      "Flora & Dér란, '꽃과 더'라는 뜻으로, 꽃을 중심으로 다양한 아이템과 서비스를 제공하는 쇼핑몰을 의미합니다.",
+      "꽃의 아름다움과 향기를 통해 사용자에게 긍정적인 경험을 제공하는 플랫폼을 만들자는 마음으로 시작했습니다.",
+      "현대적인 웹디자인을 활용하고, 트렌드에 민감하게 반응하는 사용자들의 취향과 요구를 반영하려 합니다.",
+      "전통적인 웹 쇼핑몰의 구조를 기반으로, 관리자 기능을 포함한 필수적인 기능들 위주로 구현하였습니다.",
+      "엘리스 SW 부트캠프에서 진행한 팀 프로젝트로, 최우수상을 수상하였습니다.",
+    ],
+    contribution: [
+      "프로젝트 컨셉 및 기획",
+      "비회원 & 회원 주문 페이지",
+      "비회원 & 회원 주문 조회 페이지",
+    ],
+
+    detailsDesc: [
+      "<em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능",
+      "순수 <em>Vanilla Javascript(ES6)</em>로 DOM 조작 및 이벤트 처리, API 호출과 데이터 처리 로직을 구현",
+      "<em>HTML & CSS</em> 기본 지식을 활용하여 디자인 레이아웃 및 스타일링 구현",
+      "<em>AWS EC2</em> 서비스를 활용한 프론트엔드 서버 배포",
+    ],
+    detailsImg: [F1, F2, F3, F4],
   },
 ];
