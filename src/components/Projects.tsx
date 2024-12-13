@@ -3,6 +3,11 @@ import styled from "styled-components";
 import { FixedTitle, TitleDivider } from "./Title";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Link } from "react-router-dom";
+import CarebuddyImg from "@assets/project/carebuddy.png";
+import JYPortImg from "@assets/project/portjeey.png";
+import PhotoSplash from "@assets/project/PhotoSplash.png";
+import Jwitter from "@assets/project/Jwitter.png";
+import FloraDer from "@assets/project/FloraDer.png";
 
 // 섹션 전체 영영
 const ProjectsSection = styled.section`
@@ -226,7 +231,7 @@ const Projects = () => {
       title: "Carebuddy",
       description: "반려동물 질병 커뮤니티 플랫폼, 케어버디",
       tags: "#React #TypeScript #Recoil #NodeJs #MongoDB #Vercel #AWS·S3",
-      img: "src/assets/project/carebuddy.png",
+      img: CarebuddyImg,
       type: "Team",
       link: "#",
     },
@@ -236,7 +241,7 @@ const Projects = () => {
       title: "JY Portfolio",
       description: "포트폴리오 웹사이트",
       tags: "#React #Typescript #Responsive",
-      img: "src/assets/project/portjeey.png",
+      img: JYPortImg,
       type: "Personal",
       link: "#",
     },
@@ -246,7 +251,7 @@ const Projects = () => {
       title: "PhotoSplash",
       description: "Unsplash Image API를 활용한 이미지 검색 사이트",
       tags: "#React #Typescript #Recoil #SCSS #Axios #Node.js",
-      img: "src/assets/project/PhotoSplash.png",
+      img: PhotoSplash,
       type: "Personal",
       link: "#",
     },
@@ -256,7 +261,7 @@ const Projects = () => {
       title: "Jwitter",
       description: "X(Twitter) 클론 코딩",
       tags: "#React #Typescript #Firebase #Styled-components",
-      img: "src/assets/project/Jwitter.png",
+      img: Jwitter,
       type: "Personal",
       link: "#",
     },
@@ -266,7 +271,7 @@ const Projects = () => {
       title: "Flora & Dér",
       description: "꽃다발 온라인 커스텀 쇼핑몰 사이트",
       tags: "#ES6 #JavaScipt #MongoDB #HTML&CSS #AWS·S3",
-      img: "src/assets/project/FloraDer.png",
+      img: FloraDer,
       type: "Team",
       link: "#",
     },

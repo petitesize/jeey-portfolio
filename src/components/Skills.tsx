@@ -1,4 +1,17 @@
 import styled from "styled-components";
+import aws from "@assets/icon/aws.png";
+import express from "@assets/icon/express.png";
+import firebase from "@assets/icon/Firebase.png";
+import gitlab from "@assets/icon/icons8-gitlab-240.png";
+import jira from "@assets/icon/icons8jira240.png";
+import js from "@assets/icon/js.png";
+import mongoDB from "@assets/icon/mongoDB.png";
+import nodeJS from "@assets/icon/nodeJS.png";
+import react from "@assets/icon/react.png";
+import recoil from "@assets/icon/recoil.png";
+import styledC from "@assets/icon/styled-component.png";
+import ts from "@assets/icon/typescript.png";
+import vercel from "@assets/icon/vercel-svgrepo-com.png";
 
 const SkillsSection = styled.section`
   height: 100%;
@@ -116,24 +129,24 @@ const Skills = () => {
             <CategoryTitle>Frontend</CategoryTitle>
             <ItemContainer>
               <SkillItem>
-                <Icon src="src/assets/icon/js.png" />
+                <Icon src={js} />
                 <StackName>Javascript</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/typescript.png" />
+                <Icon src={ts} />
                 <StackName>Typescript</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/react.png" />
+                <Icon src={react} />
                 <StackName>React</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/styled-component.png" />
+                <Icon src={styledC} />
                 <StackName>Styled</StackName>
                 <StackName>Components</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/recoil.png" />
+                <Icon src={recoil} />
                 <StackName>Recoil</StackName>
               </SkillItem>
             </ItemContainer>
@@ -142,19 +155,19 @@ const Skills = () => {
             <CategoryTitle>Backend</CategoryTitle>
             <ItemContainer>
               <SkillItem>
-                <Icon src="src/assets/icon/nodeJS.png" />
+                <Icon src={nodeJS} />
                 <StackName>NodeJs</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/express.png" />
+                <Icon src={express} />
                 <StackName>Express</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/mongoDB.png" />
+                <Icon src={mongoDB} />
                 <StackName>mongoDB</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/Firebase.png" />
+                <Icon src={firebase} />
                 <StackName>Firebase</StackName>
               </SkillItem>
             </ItemContainer>
@@ -163,19 +176,19 @@ const Skills = () => {
             <CategoryTitle>Devops</CategoryTitle>
             <ItemContainer>
               <SkillItem>
-                <Icon src="src/assets/icon/aws.png" />
+                <Icon src={aws} />
                 <StackName>AWS·S3</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/vercel-svgrepo-com.png" />
+                <Icon src={vercel} />
                 <StackName>Vercel</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/icons8-gitlab-240.png" />
+                <Icon src={gitlab} />
                 <StackName>Gitlab</StackName>
               </SkillItem>
               <SkillItem>
-                <Icon src="src\assets\icon/icons8jira240.png" />
+                <Icon src={jira} />
                 <StackName>Jira</StackName>
               </SkillItem>
             </ItemContainer>
