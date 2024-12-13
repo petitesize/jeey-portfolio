@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import About from "@/components/About";
 import Projects from "@components/Projects";
 import Contact from "@components/Contact";
