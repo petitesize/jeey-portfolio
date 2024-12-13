@@ -28,7 +28,7 @@ export const projectDetailData = [
       { text: "사이트 방문", link: "https://carebuddy.vercel.app/" },
       { text: "GitHub", link: "https://github.com/care-buddy/Carebuddy" },
       {
-        text: "PDF 문서",
+        text: "프로젝트 소개",
         link: "https://drive.google.com/file/d/1FVLnqVvKNXyuykXMLpbXyErJeZIeKgEF/view",
       },
     ],
@@ -131,7 +131,7 @@ export const projectDetailData = [
     buttons: [
       { text: "GitHub", link: "https://github.com/petitesize/flowerNderFront" },
       {
-        text: "PDF 문서",
+        text: "프로젝트 소개",
         link: "https://drive.google.com/file/d/1NmhgTKe2lAvaysK-uOPqrG697KrmVm7w/view",
       },
     ],
