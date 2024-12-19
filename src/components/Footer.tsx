@@ -90,10 +90,7 @@ const Footer = () => {
         </Logo>
         <div>
           <IconWrapper>
-            <a
-              target="_blank"
-              href="https://elice.works/shared-resume/account/6461/publicUuid/3796a353-0ac0-4934-8dab-dd9e94d92af5"
-            >
+            <a target="_blank" href="https://my.surfit.io/w/1181520374">
               <img src={resumeIcon} alt="Resume Icon" />
             </a>
             <a href="https://github.com/petitesize" target="_blank">

@@ -254,10 +254,7 @@ const Contact = () => {
           </ButtonWrapper>
         </ContentWrapper>
         <SocialWrapper>
-          <SocialLinks
-            target="_blank"
-            href="https://elice.works/shared-resume/account/6461/publicUuid/3796a353-0ac0-4934-8dab-dd9e94d92af5"
-          >
+          <SocialLinks target="_blank" href="https://my.surfit.io/w/1181520374">
             <LinkWrapper>
               <img src={resumeIcon} alt="Resume Icon" />
               <span>View Full Resume</span>
