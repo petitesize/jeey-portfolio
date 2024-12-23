@@ -85,18 +85,20 @@ export const projectDetailData = [
     img: PhotoSplash,
     title: "이미지 검색 사이트, PhotoSplash",
     buttons: [
+      { text: "사이트 방문", link: "https://image-splash-iota.vercel.app/" },
       { text: "GitHub", link: "https://github.com/petitesize/ImageSplash" },
     ],
     desc: [
       "Unsplash Image API를 활용한 이미지 검색 사이트 만들기",
-      "오픈 API와 Recoil 활용하여 키워드에 맞는 이미지를 검색하고, 북마크에 이미지를 저장할 수 있습니다.",
+      "오픈 API와 Recoil 활용하여 키워드에 맞는 이미지를 검색하여 다운로드할 수 있습니다.",
+      "마음에 드는 이미지를 북마크에 저장할 수 있습니다.",
     ],
 
     detailsDesc: [
       "<em>Recoil</em> 중앙집중식 상태관리 라이브러리를 사용하여 이미지 검색 구현",
       "<em>SCSS</em>를 활용한 스타일링",
       "<em>react-simple-toasts</em> 모듈을 활용하여 사용자 알림 UI 구현",
-      "<em>Axios</em>를 활용하여 오픈 API 호출",
+      "<em>Axios</em>를 활용하여 오픈 API 호출, 이미지 다운로드 구현",
     ],
     detailsImg: [PS2, PS1],
   },
