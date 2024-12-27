@@ -115,7 +115,7 @@ export const projectDetailData = [
     desc: [
       "Firebase를 활용법을 익히기 위한 X(Twitter) 클론 코딩",
       "로그인, 회원가입 및 게시물 CRUD 등의 SNS 기본 기능을 X(Twitter)를 클론 코딩하여 구현한 웹사이트",
-      "Firebase Storage를 통해 게시물에 이미지 업로드가 가능합니다.",
+      "Firebase를 통해 게시물에 이미지 업로드 및 GitHub 소셜 로그인이 가능합니다.",
     ],
 
     detailsDesc: [
