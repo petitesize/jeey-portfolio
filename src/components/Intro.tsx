@@ -5,11 +5,16 @@ const IntroSection = styled.section`
   /* padding-top: 80px; */
   padding: 80px 9rem 0 9rem;
   @media (max-width: 768px) {
-    height: 75vh;
+    height: 70vh;
 
     @media (max-width: 768px) {
       padding: 80px 4rem 0 4rem;
     }
+  }
+
+  @media (max-width: 480px) {
+    height: 50vh;
+    padding: 3rem 2rem 0 2rem;
   }
 `;
 
@@ -18,6 +23,12 @@ const TitleWrapper = styled.div`
 
   @media (max-width: 768px) {
     padding-top: 7rem;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 5rem;
+
+    line-height: 1.2;
   }
 `;
 
@@ -37,6 +48,13 @@ const IntroTitle = styled.h1`
 
   @media (max-width: 768px) {
     font-size: 4rem;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 3rem;
+    text-align: center;
+    padding-left: 3rem;
   }
 `;
 

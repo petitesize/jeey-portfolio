@@ -21,6 +21,12 @@ const FooterContent = styled.div`
     grid-row-gap: 1rem;
     flex-flow: column;
   }
+
+  @media (max-width: 480px) {
+    > div:first-child {
+      text-align: center;
+    }
+  }
 `;
 
 const Divider = styled.div`

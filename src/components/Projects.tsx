@@ -31,6 +31,10 @@ const Filter = styled.div`
   @media (max-width: 768px) {
     margin-top: 1.25rem;
   }
+
+  @media (max-width: 480px) {
+    margin-top: 5rem;
+  }
 `;
 
 const FilterButton = styled.button<{ active: boolean }>`
