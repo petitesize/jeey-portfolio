@@ -55,6 +55,7 @@ const Text = styled.div`
 
   @media screen and (max-width: 991px) {
     padding: 0 1rem;
+    margin-right: 0;
   }
 
   @media (max-width: 768px) {
