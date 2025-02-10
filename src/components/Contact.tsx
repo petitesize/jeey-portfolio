@@ -254,7 +254,10 @@ const Contact = () => {
           </ButtonWrapper>
         </ContentWrapper>
         <SocialWrapper>
-          <SocialLinks target="_blank" href="https://my.surfit.io/w/1181520374">
+          <SocialLinks
+            target="_blank"
+            href="https://drive.google.com/file/d/1YIgG6d-HcaWfxqGzHKCGQE2CPfNZKFA6/view?usp=sharing"
+          >
             <LinkWrapper>
               <img src={resumeIcon} alt="Resume Icon" />
               <span>View Full Resume</span>
