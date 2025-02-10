@@ -256,7 +256,7 @@ const Contact = () => {
         <SocialWrapper>
           <SocialLinks
             target="_blank"
-            href="https://drive.google.com/file/d/1YIgG6d-HcaWfxqGzHKCGQE2CPfNZKFA6/view?usp=sharing"
+            href="https://drive.google.com/file/d/15qUzMy1pxTH1h_oOe2VNWlPz8ilr7mBa/view?usp=sharing"
           >
             <LinkWrapper>
               <img src={resumeIcon} alt="Resume Icon" />
