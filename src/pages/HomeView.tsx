@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Intro from "@/components/Intro";
 import Skills from "@/components/Skills";
 import link from "@/utils/link";
+import Profile from "@/components/Profile";
 
 const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
@@ -47,7 +48,8 @@ const HomeView = () => {
       <AnimationWrapper isLoaded={isLoaded}>
         <Main isLoaded={isOpacity}>
           <Intro />
-          <About />
+          {/* <About /> */}
+          <Profile />
           <Skills />
           <Projects />
           <Contact />
