@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import About from "@/components/About";
 import Projects from "@components/Projects";
 import Contact from "@components/Contact";
 import styled from "styled-components";
