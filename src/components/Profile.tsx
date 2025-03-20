@@ -76,18 +76,8 @@ const Profile = () => {
         <InfoSection>
           <Section>
             <SectionTitle>Certificate</SectionTitle>
-            <p>
-              SQL개발자(SQLD자격) <span>(최종합격)</span>
-            </p>
-            <p>
-              컴퓨터활용능력1급 <span>(최종합격)</span>
-            </p>
-            <p>
-              정보처리기사 <span>(필기합격)</span>
-            </p>
-            <p>
-              2종보통운전면허 <span>(최종합격)</span>
-            </p>
+            <p>SQL개발자(SQLD자격)</p>
+            <p>컴퓨터활용능력1급</p>
           </Section>
 
           <Section>
