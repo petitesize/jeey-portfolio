@@ -7,17 +7,31 @@ import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 import { Navigation, Pagination } from "swiper/modules";
 import { projectDetailData } from "@/constants";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const ProjectDetail = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isOpacity, setIsOpacity] = useState(false);
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const { pathname } = useLocation();
+  // 열려있는 상세 desc의 index를 저장하는 number 배열
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   // URL에서 projectId를 가져와서, 해당 id와 동일한 id를 프로젝트 데이터에서 찾아옴
   const { projectId } = useParams();
   const project = projectDetailData.find((p) => p.id === projectId);
+
+  const toggleDetail = (
+    index: number,
+    e: React.MouseEvent<HTMLSpanElement>
+  ) => {
+    e.stopPropagation();
+    // 열려있는 desc index 배열 전달해서 있으면 없애서 닫기, 없으면 추가해서 열기
+    setOpenIndexes((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -26,7 +40,11 @@ const ProjectDetail = () => {
     setMousePosition({ x, y });
   };
 
-  window.scrollTo(0, 0);
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+  }, [pathname]);
 
   useEffect(() => {
     // 컴포넌트가 마운트되고 로딩이 완료되면 애니메이션 실행
@@ -92,11 +110,34 @@ const ProjectDetail = () => {
           <Divider />
           <div>
             <Header>Project Details</Header>
-            <DetailsList>
-              {project.detailsDesc.map((desc, index) => (
-                <li dangerouslySetInnerHTML={{ __html: desc }} key={index}></li>
-              ))}
-            </DetailsList>
+            {project.detailsDesc && (
+              <DetailsList>
+                {project.detailsDesc.map((detail, index) => {
+                  const isOpen = openIndexes.includes(index);
+                  const hasDescription =
+                    "description" in detail && !!detail.description;
+
+                  return (
+                    <DetailItem key={index}>
+                      <DetailTitle
+                        hasDescription={hasDescription}
+                        onClick={(e) =>
+                          hasDescription && toggleDetail(index, e)
+                        }
+                      >
+                        <span
+                          dangerouslySetInnerHTML={{ __html: detail.title }}
+                        />
+                      </DetailTitle>
+
+                      {isOpen && hasDescription && (
+                        <DetailDesc>{detail.description}</DetailDesc>
+                      )}
+                    </DetailItem>
+                  );
+                })}
+              </DetailsList>
+            )}
           </div>
 
           <CarouselWrapper>
@@ -160,6 +201,37 @@ const DetailsList = styled.ul`
   list-style: disc;
   margin-left: 1rem;
   line-height: 1.7;
+  > li {
+    margin-bottom: 4px;
+  }
+`;
+
+const DetailDesc = styled.p`
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: ${(props) => props.theme.colors.gray500};
+`;
+
+const DetailItem = styled.li`
+  margin-bottom: 10px;
+`;
+
+const DetailTitle = styled.span<{ hasDescription: boolean }>`
+  display: inline-block;
+  font-weight: bold;
+  ${({ hasDescription }) =>
+    hasDescription &&
+    `& em {
+    cursor: pointer;
+    background-color: #ffe4e8; 
+    padding: 0.125em 0.3em; 
+    font-weight: bold;  
+    &:hover {
+      background-color: rgba(255, 153, 173,0.5);
+      
+    }
+      transition: all 0.3s ease;
+    }`}
 `;
 
 const Header = styled.h2`
@@ -181,7 +253,7 @@ const Main = styled.main<{ isLoaded: boolean }>`
   background-color: ${(props) => props.theme.colors.orange000};
 
   opacity: ${(props) => (props.isLoaded ? "1" : "0")};
-  transition: opacity 1.5s ease-in;
+  transition: opacity 1s ease-in;
 `;
 
 const ButtonWrapper = styled.div`
@@ -316,6 +388,15 @@ const ImageWrapper = styled.div`
       rgb(232, 222, 212, 1),
       rgb(170, 147, 136, 0.6),
       rgb(232, 222, 212, 1)
+    );
+  }
+  &.brown {
+    background-image: linear-gradient(
+      -45deg,
+      rgb(160, 128, 108, 0.9),
+      rgb(200, 170, 140, 0.8),
+      rgb(225, 205, 180, 0.6),
+      rgb(245, 230, 210, 0.4)
     );
   }
 

@@ -12,9 +12,7 @@ const link = () => {
 
       //   해당 위치로 smooth 옵션으로 스크롤
       if (targetElement) {
-        setTimeout(() => {
-          targetElement.scrollIntoView({ behavior: "smooth" });
-        }, 100);
+        targetElement.scrollIntoView({ behavior: "smooth" });
       }
     });
   });

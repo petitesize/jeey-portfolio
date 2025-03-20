@@ -8,6 +8,7 @@ import JYPortImg from "@assets/project/portjeey.png";
 import PhotoSplash from "@assets/project/PhotoSplash.png";
 import Jwitter from "@assets/project/Jwitter.png";
 import FloraDer from "@assets/project/FloraDer.png";
+import SearchCat from "@assets/project/SearchCat.png";
 
 // 섹션 전체 영영
 const ProjectsSection = styled.section`
@@ -142,6 +143,15 @@ const ImageWrapper = styled.div`
       rgb(232, 222, 212, 1)
     );
   }
+  &.brown {
+    background-image: linear-gradient(
+      -45deg,
+      rgb(160, 128, 108, 0.9),
+      rgb(200, 170, 140, 0.8),
+      rgb(225, 205, 180, 0.6),
+      rgb(245, 230, 210, 0.4)
+    );
+  }
 
   @media (max-width: 768px) {
     padding: 1rem 2rem;
@@ -239,6 +249,17 @@ const Projects = () => {
       type: "Team",
       link: "#",
     },
+    {
+      id: "searchCat",
+      color: "brown",
+      title: "고양이 사진 검색 사이트",
+      description: "Vanilla JS(ES6)로만 구현해보는 고양이 사진 검색 사이트",
+      tags: "#ES6 #JavaScipt #HTML&CSS",
+      img: SearchCat,
+      type: "Personal",
+      link: "#",
+    },
+
     {
       id: "JYportfolio",
       color: "gold",

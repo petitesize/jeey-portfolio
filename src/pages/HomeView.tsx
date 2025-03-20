@@ -26,7 +26,7 @@ const Main = styled.main<{ isLoaded: boolean }>`
   /* height: 100vh; */
   /* width: 100% */
   opacity: ${(props) => (props.isLoaded ? "1" : "0")};
-  transition: opacity 1.5s ease-in;
+  transition: opacity 1s ease-in;
 `;
 
 const HomeView = () => {

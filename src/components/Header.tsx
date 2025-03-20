@@ -21,12 +21,13 @@ const Header = () => {
     // ProjectDetail 페이지에서 HomeView로 이동하고 섹션으로 이동
     if (location.pathname.startsWith("/project")) {
       navigate("/"); // HomeView로 이동
-      setTimeout(() => {
-        const section = document.querySelector(`${id}`);
-        if (section) {
+
+      const section = document.querySelector(`${id}`);
+      if (section) {
+        setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300); // 프로젝트 컴포넌트 로딩 대기 시간
+        }, 100);
+      }
     }
   };
 

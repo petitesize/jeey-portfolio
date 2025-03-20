@@ -3,6 +3,7 @@ import JYPortImg from "@assets/project/portjeey.png";
 import PhotoSplash from "@assets/project/PhotoSplash.png";
 import Jwitter from "@assets/project/Jwitter.png";
 import FloraDer from "@assets/project/FloraDer.png";
+import SearchCat from "@assets/project/SearchCat.png";
 import C1 from "@assets/project/details/c1.png";
 import C2 from "@assets/project/details/c2.png";
 import C3 from "@assets/project/details/c3.png";
@@ -17,6 +18,8 @@ import F1 from "@assets/project/details/f1.png";
 import F2 from "@assets/project/details/f2.png";
 import F3 from "@assets/project/details/f3.png";
 import F4 from "@assets/project/details/f4.png";
+import S1 from "@assets/project/details/s1.png";
+import S2 from "@assets/project/details/s2.png";
 
 export const projectDetailData = [
   {
@@ -45,15 +48,100 @@ export const projectDetailData = [
       "AWS S3 이미지 URL 생성 & 업로드",
     ],
     detailsDesc: [
-      "<em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능",
-      "<em>Recoil</em> 사용하여 전역 상태 관리",
-      "<em>Vite</em> 기반 ESLint와 TypeScript를 적용한 개발 환경 구성",
-      "<em>ESLint</em>로 코드 품질 유지 및 <em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
-      "<em>react-icons / styled-components</em> 등 사용하여 스타일링",
-      "<em>rc-pagination</em> 사용하여 리스트의 페이지네이션 처리 및 테이블 컴포넌트 공통화",
-      "<em>swiper</em> 사용하여 반려동물 프로필 슬라이더 UI로 구현",
+      {
+        title: "<em>swiper</em> 사용하여 반려동물 프로필 슬라이더 UI로 구현",
+      },
+      {
+        title:
+          "<em>rc-pagination</em> 사용하여 리스트의 페이지네이션 처리 및 테이블 컴포넌트 공통화",
+        description:
+          "커스터마이즈 가능한 속성들을 활용하여 케어버디 웹 테마와 디자인 일치",
+      },
+      {
+        title:
+          "<em>Axios Interceptor</em> 활용하여 반복되는 HTTP 요청을 일관되게 관리하며 코드의 재사용성을 향상",
+      },
+
+      {
+        title: "<em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능",
+        description:
+          "AWS SDK를 사용하여 사용자가 업로드한 이미지 파일을 S3 버킷에 저장하며, URL을 생성하여 클라이언트에 반환하도록 구현",
+      },
+      {
+        title: "<em>Recoil</em> 상태 관리로 반려동물 관리 및 진료 기록 구현",
+        description:
+          "선택된 반려동물의 고유 ID를 selectedIdState를 통해 Recoil로 상태 관리하며, 이를 반려동물 및 진료 기록 관련 API 호출의 기준으로 활용",
+      },
+      {
+        title: "<em>Recoil</em> 상태 관리로 사용자 접근 제어 구현",
+        description:
+          "사용자의 로그인 상태를 관리하고, 라우팅 처리를 통해 로그인이 필요한 페이지에 대한 접근 제어 구현",
+      },
+      {
+        title:
+          "<em>Recoil</em>과 <em>JWT</em>를 활용하여 인증 오류 처리 및 자동 로그인 연장 구현",
+        description:
+          "백엔드 팀과 협업하여 서버로부터 새로운 accessToken을 받아오고, 이를 Recoil 상태에 저장하여 사용자 세션을 자동으로 연장하여 로그인 연장 구현",
+      },
+
+      {
+        title: "<em>Vite</em> 기반 ESLint와 TypeScript를 적용한 개발 환경 구성",
+      },
+      {
+        title:
+          "<em>ESLint</em>로 코드 품질 유지 및 <em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
+      },
+      {
+        title: "<em>react-icons / styled-components</em> 등 사용하여 스타일링",
+      },
     ],
     detailsImg: [C2, C1, C3, C4],
+  },
+  {
+    id: "searchCat",
+    backgroundColor: "brown",
+    img: SearchCat,
+    title: "고양이 사진 검색 사이트",
+    buttons: [
+      { text: "사이트 방문", link: "https://searching-cat.netlify.app/" },
+      { text: "GitHub", link: "https://github.com/petitesize/search-cat" },
+      { text: "Blog", link: "https://jee0.tistory.com/59" },
+    ],
+    desc: [
+      "라이브러리나 프레임워크 없이 오픈 API를 활용하여 Vanilla JS(ES6)로만 반응형 웹을 구현하였습니다.",
+      "랜덤한 고양이 또는 키워드에 맞는 고양이를 검색할 수 있으며, 검색 기록이 저장됩니다.",
+      "원하는 고양이를 선택하여 상세 정보를 확인할 수 있습니다.",
+      "다크모드가 지원됩니다.",
+    ],
+
+    detailsDesc: [
+      {
+        title:
+          "<em>data-theme</em> 속성을 사용하여 OS 설정을 기반으로 동작하는 다크모드 구현",
+      },
+      {
+        title:
+          "<em>IntersectionObserver</em> 사용하여 다수의 이미지를 lazy load 개념으로 렌더링하며, 스크롤 페이징 구현",
+      },
+      {
+        title:
+          "<em>localStorage</em>에 다크모드, 검색 히스토리, 검색 결과를 저장",
+      },
+
+      {
+        title:
+          "라이브러리 없이 <em>HTML&CSS</em>만을 사용하여 슬라이드 배너 섹션 구현",
+        description:
+          "translateX와 flex 속성을 사용하여 배너 섹션을 구현하였으며, transition을 적용하여 슬라이드 효과 적용",
+      },
+      {
+        title:
+          "검색 결과 화면을 <em>Event Delegation</em> 기법을 이용하여 코드 단순화 및 메모리 절약",
+        description:
+          "각 이미지들의 클릭 이벤트를 Event Delegation 기법을 적용하여 등록",
+      },
+    ],
+    detailsImg: [S1, S2],
   },
 
   {
@@ -70,11 +158,23 @@ export const projectDetailData = [
     ],
 
     detailsDesc: [
-      "<em>Lenis</em>를 이용한 부드러운 스크롤 애니메이션 구현",
-      "<em>styled-components</em> 및 <em>react-transition-group</em>을 활용한 스타일링과 애니메이션 구현",
-      "<em>Swiper</em>를 이용하여 프로젝트 상세 슬라이더 UI 구현",
-      "<em>ESLint</em>로 코드 품질 유지 및 <em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
-      "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
+      {
+        title: "<em>Lenis</em>를 이용한 부드러운 스크롤 애니메이션 구현",
+      },
+      {
+        title:
+          "<em>styled-components</em> 및 <em>react-transition-group</em>을 활용한 스타일링과 애니메이션 구현",
+      },
+      {
+        title: "<em>Swiper</em>를 이용하여 프로젝트 상세 슬라이더 UI 구현",
+      },
+      {
+        title:
+          "<em>ESLint</em>로 코드 품질 유지 및 <em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
+      },
+      {
+        title: "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
+      },
     ],
     detailsImg: [P1, P2],
   },
@@ -95,10 +195,20 @@ export const projectDetailData = [
     ],
 
     detailsDesc: [
-      "<em>Recoil</em> 중앙집중식 상태관리 라이브러리를 사용하여 이미지 검색 구현",
-      "<em>SCSS</em>를 활용한 스타일링",
-      "<em>react-simple-toasts</em> 모듈을 활용하여 사용자 알림 UI 구현",
-      "<em>Axios</em>를 활용하여 오픈 API 호출, 이미지 다운로드 구현",
+      {
+        title:
+          "<em>Recoil</em> 중앙집중식 상태관리 라이브러리를 사용하여 이미지 검색 구현",
+      },
+      {
+        title: "<em>SCSS</em>를 활용한 스타일링",
+      },
+      {
+        title:
+          "<em>react-simple-toasts</em> 모듈을 활용하여 사용자 알림 UI 구현",
+      },
+      {
+        title: "<em>Axios</em>를 활용하여 오픈 API 호출, 이미지 다운로드 구현",
+      },
     ],
     detailsImg: [PS2, PS1],
   },
@@ -119,10 +229,19 @@ export const projectDetailData = [
     ],
 
     detailsDesc: [
-      "<em>Firebase</em>를 활용하여 사용자 인증 및 실시간 데이터베이스 연동",
-      "<em>Styled-components</em>를 활용한 스타일링",
-      "<em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
-      "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
+      {
+        title:
+          "<em>Firebase</em>를 활용하여 사용자 인증 및 실시간 데이터베이스 연동",
+      },
+      {
+        title: "<em>Styled-components</em>를 활용한 스타일링",
+      },
+      {
+        title: "<em>TypeScript</em>를 통해 컴파일 단계에서 타입 안정성 보장",
+      },
+      {
+        title: "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
+      },
     ],
     detailsImg: [J1, J2],
   },
@@ -153,10 +272,20 @@ export const projectDetailData = [
     ],
 
     detailsDesc: [
-      "<em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능",
-      "순수 <em>Vanilla Javascript(ES6)</em>로 DOM 조작 및 이벤트 처리, API 호출과 데이터 처리 로직을 구현",
-      "<em>HTML & CSS</em> 기본 지식을 활용하여 디자인 레이아웃 및 스타일링 구현",
-      "<em>AWS EC2</em> 서비스를 활용한 프론트엔드 서버 배포",
+      {
+        title: "<em>AWS S3 Bucket</em>를 이용한 이미지 URL 생성 및 업로드 기능",
+      },
+      {
+        title:
+          "순수 <em>Vanilla Javascript(ES6)</em>로 DOM 조작 및 이벤트 처리, API 호출과 데이터 처리 로직을 구현",
+      },
+      {
+        title:
+          "<em>HTML & CSS</em> 기본 지식을 활용하여 디자인 레이아웃 및 스타일링 구현",
+      },
+      {
+        title: "<em>AWS EC2</em> 서비스를 활용한 프론트엔드 서버 배포",
+      },
     ],
     detailsImg: [F1, F2, F3, F4],
   },
