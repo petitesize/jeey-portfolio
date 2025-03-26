@@ -15,6 +15,7 @@ export default defineConfig({
             "@services": fileURLToPath(new URL("./src/services", import.meta.url)),
             "@utils": fileURLToPath(new URL("./src/utils", import.meta.url)),
             "@interface": fileURLToPath(new URL("./src/interface", import.meta.url)),
+            "@redux": fileURLToPath(new URL("./src/redux", import.meta.url)),
         },
     },
 });

@@ -159,6 +159,7 @@ const colors = {
   // COLOR BLACK
   // main color
   black000: "#15171a",
+  black300: "#333",
   black900: "#000000",
 };
 
@@ -191,6 +192,42 @@ const theme = {
   sizes,
 };
 
+export const lightTheme = {
+  mode: "light",
+  colors: {
+    ...colors,
+    background: colors.orange000,
+    text: colors.black000,
+    header: colors.black000,
+    detailText: colors.black300,
+    cardBg: colors.white000,
+    boxShadow: "rgba(0, 0, 0, 0.1)",
+    projectDetailBg: colors.rose100,
+    projectDetailHover: "rgba(255, 153, 173, 0.5)",
+    projectDetailText: colors.gray500,
+  },
+  fonts,
+  sizes,
+};
+
+export const darkTheme = {
+  mode: "dark",
+  colors: {
+    ...colors,
+    background: colors.gray900,
+    text: colors.orange000,
+    header: colors.rose300,
+    detailText: colors.rose050,
+    cardBg: colors.orange000,
+    boxShadow: "rgba(255, 255, 255, 0.2)",
+    projectDetailBg: colors.gray600,
+    projectDetailHover: "rgba(255, 153, 173, 0.8)",
+    projectDetailText: colors.gray400,
+  },
+  fonts,
+  sizes,
+};
+
 export default theme;
 
-export type Theme = typeof theme;
+export type Theme = typeof lightTheme;

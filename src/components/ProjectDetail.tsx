@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -209,7 +209,7 @@ const DetailsList = styled.ul`
 const DetailDesc = styled.p`
   margin: 4px 0;
   font-size: 0.9rem;
-  color: ${(props) => props.theme.colors.gray500};
+  color: ${(props) => props.theme.colors.projectDetailText};
 `;
 
 const DetailItem = styled.li`
@@ -221,17 +221,18 @@ const DetailTitle = styled.span<{ hasDescription: boolean }>`
   font-weight: bold;
   ${({ hasDescription }) =>
     hasDescription &&
-    `& em {
-    cursor: pointer;
-    background-color: #ffe4e8; 
-    padding: 0.125em 0.3em; 
-    font-weight: bold;  
-    &:hover {
-      background-color: rgba(255, 153, 173,0.5);
-      
-    }
-      transition: all 0.3s ease;
-    }`}
+    css`
+      & em {
+        cursor: pointer;
+        background-color: ${({ theme }) => theme.colors.projectDetailBg};
+        padding: 0.125em 0.3em;
+        font-weight: bold;
+        &:hover {
+          background-color: ${({ theme }) => theme.colors.projectDetailHover};
+        }
+        transition: all 0.3s ease;
+      }
+    `}
 `;
 
 const Header = styled.h2`
@@ -250,10 +251,10 @@ const AnimationWrapper = styled.div<{ isLoaded: boolean }>`
 `;
 
 const Main = styled.main<{ isLoaded: boolean }>`
-  background-color: ${(props) => props.theme.colors.orange000};
+  background-color: ${(props) => props.theme.colors.background};
 
   opacity: ${(props) => (props.isLoaded ? "1" : "0")};
-  transition: opacity 1s ease-in;
+  transition: opacity 1s ease-in, color 0.3s ease, background-color 0.3s ease;
 `;
 
 const ButtonWrapper = styled.div`
@@ -268,11 +269,11 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.div`
   position: relative;
-  color: ${(props) => props.theme.colors.white000};
+  color: ${(props) => props.theme.colors.orange000};
   text-align: center;
   letter-spacing: 0.02em;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.black000};
+  background-color: ${(props) => props.theme.colors.header};
   border: none;
   border-radius: 0.75rem;
   padding: 0.6rem 1rem;
@@ -334,7 +335,7 @@ const ImageWrapper = styled.div`
 
   position: relative;
   opacity: 1;
-  border: 1px white solid;
+  border: 1px none solid;
 
   img {
     width: 100%; /* 카드 내부의 이미지를 꽉 채움 */
@@ -406,7 +407,7 @@ const ImageWrapper = styled.div`
 `;
 
 const Divider = styled.div`
-  background-color: ${(props) => props.theme.colors.black000};
+  background-color: ${(props) => props.theme.colors.text};
   height: 0.0625rem;
   margin-top: 4rem;
 `;

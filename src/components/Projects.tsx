@@ -99,7 +99,7 @@ const ImageWrapper = styled.div`
 
   position: relative;
   opacity: 1;
-  border: 1px white solid;
+  border: 1px none solid;
 
   &.green {
     background-image: linear-gradient(

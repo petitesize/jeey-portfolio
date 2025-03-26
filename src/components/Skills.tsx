@@ -33,8 +33,8 @@ const SkillsTitle = styled.h2`
   width: 100%;
   padding-top: 0.75rem;
   padding-bottom: 4rem;
-  color: ${(props) => props.theme.colors.black000};
-  border-top: 0.15rem solid ${(props) => props.theme.colors.black000};
+  color: ${(props) => props.theme.colors.text};
+  border-top: 0.15rem solid ${(props) => props.theme.colors.text};
   width: 27%;
 
   @media (max-width: 768px) {
@@ -73,7 +73,7 @@ const CategoryTitle = styled.h3`
   margin-bottom: 1rem;
   text-transform: uppercase;
   position: relative;
-  /* display: inline-block; */
+  color: ${(props) => props.theme.colors.detailText};
 `;
 
 const ItemContainer = styled.div`
@@ -92,15 +92,15 @@ const SkillItem = styled.div`
   padding: 1rem;
   width: 70px;
   height: 100px;
-  background-color: ${(props) => props.theme.colors.white000};
+  background-color: ${(props) => props.theme.colors.cardBg};
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px ${(props) => props.theme.colors.boxShadow};
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px ${(props) => props.theme.colors.boxShadow};
   }
 `;
 

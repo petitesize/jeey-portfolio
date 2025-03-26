@@ -32,7 +32,8 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@utils/*": ["src/utils/*"],
-      "@interface/*": ["src/interface/*"]
+      "@interface/*": ["src/interface/*"],
+      "@redux/*": ["src/redux/*"]
     }
   },
   "include": ["src", "vite.config.ts", "src/**/*.d.ts"],

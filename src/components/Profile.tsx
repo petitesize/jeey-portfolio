@@ -42,13 +42,10 @@ const InfoSection = styled.div`
 `;
 
 const Section = styled.div`
-  /* border-left: 3px solid ${(props) => props.theme.colors.black000}; */
   padding-left: 15px;
   > p {
     margin-top: 4px;
-    /* > span {
-      color: ${(props) => props.theme.colors.gray400};
-    } */
+    color: ${(props) => props.theme.colors.detailText};
   }
   @media (max-width: 768px) {
     border-left: none;
@@ -57,7 +54,7 @@ const Section = styled.div`
 
 const SectionTitle = styled.a`
   font-size: 1.2rem;
-  color: ${(props) => props.theme.colors.black000};
+  color: ${(props) => props.theme.colors.text};
   box-shadow: 0 2.5px 0 0 ${(props) => props.theme.colors.rose300};
 `;
 

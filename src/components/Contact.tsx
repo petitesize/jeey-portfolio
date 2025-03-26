@@ -31,7 +31,7 @@ const ContentWrapper = styled.div``;
 
 const SubHeading = styled.h2`
   font-size: 3.625rem;
-  color: ${(props) => props.theme.colors.black000};
+  color: ${(props) => props.theme.colors.text};
   margin-bottom: 4rem;
   margin-top: -1rem;
 
@@ -46,7 +46,7 @@ const Content = styled.p`
   margin-top: 0;
   margin-bottom: 0.625rem;
   line-height: 1.5;
-  color: ${(props) => props.theme.colors.black000};
+  color: ${(props) => props.theme.colors.text};
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -80,11 +80,11 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.div`
   position: relative;
-  color: ${(props) => props.theme.colors.white000};
+  color: ${(props) => props.theme.colors.orange000};
   text-align: center;
   letter-spacing: 0.02em;
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.black000};
+  background-color: ${(props) => props.theme.colors.header};
   border: none;
   border-radius: 0.75rem;
   padding: 1rem 1.5rem;
@@ -144,12 +144,16 @@ const SocialWrapper = styled.div`
 
 const LinkWrapper = styled.div`
   display: flex;
+  color: ${(props) => props.theme.colors.text};
 
   > img {
     padding-right: 0.5rem;
     display: inline-block;
     height: 1.5rem;
 
+    &.invert {
+      ${({ theme }) => theme.mode === "dark" && `filter: invert(100%);`}
+    }
     &:hover + span {
       box-shadow: none;
     }
@@ -259,13 +263,17 @@ const Contact = () => {
             href="https://drive.google.com/file/d/1BiBCjAZJs6xZU2JShIE9CS61f8O4h79u/view?usp=sharing"
           >
             <LinkWrapper>
-              <img src={resumeIcon} alt="Resume Icon" />
+              <img src={resumeIcon} alt="Resume Icon" className="invert" />
               <span>View Full Resume</span>
             </LinkWrapper>
           </SocialLinks>
           <SocialLinks href="https://github.com/petitesize" target="_blank">
             <LinkWrapper>
-              <img src={githubIcon} alt="github Icon" className="github" />
+              <img
+                src={githubIcon}
+                alt="github Icon"
+                className="github invert"
+              />
               <span>Github</span>
             </LinkWrapper>
           </SocialLinks>

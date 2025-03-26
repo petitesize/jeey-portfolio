@@ -9,7 +9,7 @@ import Profile from "@/components/Profile";
 
 const Wrapper = styled.div`
   font-family: "Arial", sans-serif;
-  background-color: ${(props) => props.theme.colors.orange000};
+  /* background-color: ${(props) => props.theme.colors.orange000}; */
   color: #333;
   /* padding: 0 9rem; */
   /* width: 100%; */
@@ -22,7 +22,7 @@ const AnimationWrapper = styled.div<{ isLoaded: boolean }>`
 `;
 
 const Main = styled.main<{ isLoaded: boolean }>`
-  background-color: ${(props) => props.theme.colors.orange000};
+  /* background-color: ${(props) => props.theme.colors.orange000}; */
   /* height: 100vh; */
   /* width: 100% */
   opacity: ${(props) => (props.isLoaded ? "1" : "0")};

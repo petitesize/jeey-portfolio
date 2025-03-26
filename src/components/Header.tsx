@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { DarkMode } from "./DarkMode";
 
 const Header = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -60,6 +61,7 @@ const Header = () => {
   return (
     <HeaderWrapper isLoaded={isLoaded}>
       <HeaderInner isNavVisible={isNavVisible}>
+        {/* 홈 로고 */}
         <Logo isNavVisible={isNavVisible}>
           <a
             href="#home"
@@ -70,6 +72,7 @@ const Header = () => {
             JY
           </a>
         </Logo>
+        {/* 웹 내비게이션 */}
         <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
           <ul>
             {headerNav.map((nav, key) => (
@@ -87,6 +90,8 @@ const Header = () => {
             ))}
           </ul>
         </Nav>
+        <DarkMode />
+        {/* 모바일 내비게이션 */}
         <NavMobile
           isNavVisible={isNavVisible}
           id="headerToggle"
@@ -270,6 +275,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
     }
   }
 
+  margin-left: auto;
   li {
     display: inline;
 
@@ -278,7 +284,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
       font-size: 16px;
       padding: 14px;
       position: relative;
-      color: ${(props) => props.theme.colors.black000};
+      color: ${(props) => props.theme.colors.text};
       font-weight: 700;
 
       /* hover 시 나오는 밑줄 효과를 가상요소를 이용해 표현 */

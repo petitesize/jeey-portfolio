@@ -163,6 +163,18 @@ export const projectDetailData = [
       },
       {
         title:
+          "<em>Redux Toolkit</em>을 활용해 전역 다크모드 상태 관리 및 토글 기능 구현",
+        description:
+          "theme 전역 상태로로 사용자 인터랙션에 따라 다크/라이트 모드를 관리",
+      },
+      {
+        title:
+          "<em>ThemeProvider</em>로 다크/라이트 테마 분기 및 스타일 일관성 확보 ",
+        description:
+          "라이트/다크 테마 객체를 분기하여 컴포넌트 단위에서 동적으로 색상을 적용하고, Redux를 통한 상태를 기반으로 테마 일관성 유지",
+      },
+      {
+        title:
           "<em>styled-components</em> 및 <em>react-transition-group</em>을 활용한 스타일링과 애니메이션 구현",
       },
       {

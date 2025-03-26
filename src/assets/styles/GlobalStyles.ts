@@ -68,8 +68,9 @@ const GlobalStyles = createGlobalStyle`
 
   /* Custom Global Styles */
   body {
-    background-color: ${(props) => props.theme.colors.orange000};
-    color: ${(props) => props.theme.colors.black000};
+ 
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
     font-family:  'Pretendard-Regular' ,'Paperlogy','gmarket', sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -79,8 +80,11 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+    transition: color 0.3s ease, background-color 0.3s ease;
     
   }
+  
+
 
   a {
     text-decoration: none;
@@ -90,7 +94,7 @@ const GlobalStyles = createGlobalStyle`
 
   p {
     text-decoration: none;
-    color: inherit;
+    color: ${({ theme }) => theme.colors.text};
     font-family: 'Pretendard-Regular';
     letter-spacing: .006em;
     line-height: 1.6;
@@ -115,9 +119,11 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     font-family: 'Paperlogy-8ExtraBold';
+    color: ${({ theme }) => theme.colors.text};
   }
   h3 {
     font-family: 'Paperlogy-8ExtraBold';
+    color: ${({ theme }) => theme.colors.text};
   }
 
 

@@ -4,6 +4,10 @@ const IntroSection = styled.section`
   height: 100vh;
   /* padding-top: 80px; */
   padding: 80px 9rem 0 9rem;
+  @media (max-width: 1439px) {
+    padding: 80px 7rem 0 7rem;
+  }
+
   @media (max-width: 768px) {
     height: 70vh;
 
@@ -20,6 +24,9 @@ const IntroSection = styled.section`
 
 const TitleWrapper = styled.div`
   padding-top: 9rem;
+  /* h1:last-child {
+    color: #ff99ad;
+  } */
 
   @media (max-width: 768px) {
     padding-top: 7rem;
@@ -33,28 +40,41 @@ const TitleWrapper = styled.div`
 `;
 
 const IntroTitle = styled.h1`
-  font-family: "RIDIBatang";
+  font-family: "Paperlogy_SemiBold";
   font-size: 6rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   line-height: 1.3;
   font-weight: 800;
-  white-space: normal;
+  white-space: nowrap;
   /* text-indent: -0.5vw; */
   letter-spacing: -0.1vw;
-  color: ${(props) => props.theme.colors.black000};
+  color: ${(props) => props.theme.colors.header};
 
   padding-left: 5rem;
   padding-right: 5rem;
 
+  @media (max-width: 1439px) {
+    font-size: 5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @media (max-width: 991px) {
+    font-size: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   @media (max-width: 768px) {
     font-size: 4rem;
+    padding-left: 0;
+    padding-right: 0;
     text-align: center;
+    white-space: normal;
   }
 
   @media (max-width: 480px) {
     font-size: 3rem;
-    text-align: center;
-    padding-left: 3rem;
   }
 `;
 
@@ -62,9 +82,9 @@ const Intro = () => {
   return (
     <IntroSection id="home">
       <TitleWrapper>
-        <IntroTitle>Jeeyoung</IntroTitle>
-        <IntroTitle>Frontend Developer</IntroTitle>
-        <IntroTitle>PortFolio</IntroTitle>
+        <IntroTitle>JeeYoung</IntroTitle>
+        <IntroTitle>Frontend developer</IntroTitle>
+        <IntroTitle>Portfolio</IntroTitle>
       </TitleWrapper>
     </IntroSection>
   );

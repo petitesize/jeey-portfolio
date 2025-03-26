@@ -31,7 +31,7 @@ const FooterContent = styled.div`
 
 const Divider = styled.div`
   height: 1px;
-  background-color: ${(props) => props.theme.colors.black000};
+  background-color: ${(props) => props.theme.colors.text};
 
   margin: 0 9rem;
   @media (max-width: 768px) {
@@ -78,6 +78,9 @@ const IconWrapper = styled.div`
       opacity: 1;
       filter: grayscale(0);
     }
+    &.invert {
+      ${({ theme }) => theme.mode === "dark" && `filter: invert(100%);`}
+    }
     transition: all 0.12s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   }
   @media (max-width: 768px) {
@@ -97,10 +100,14 @@ const Footer = () => {
         <div>
           <IconWrapper>
             <a target="_blank" href="https://my.surfit.io/w/1181520374">
-              <img src={resumeIcon} alt="Resume Icon" />
+              <img src={resumeIcon} alt="Resume Icon" className="invert" />
             </a>
             <a href="https://github.com/petitesize" target="_blank">
-              <img src={githubIcon} alt="github Icon" className="github" />
+              <img
+                src={githubIcon}
+                alt="github Icon"
+                className="github invert"
+              />
             </a>
             <a href="https://jee0.tistory.com/" target="_blank">
               <img className="tistory" src={blogIcon} alt="blog Icon" />
