@@ -154,8 +154,9 @@ export const projectDetailData = [
       { text: "GitHub", link: "https://github.com/petitesize/jeey-portfolio" },
     ],
     desc: [
-      "나만의 포트폴리오를 위한 웹사이트 개발",
-      "Vite + React + TypeScript 환경에서 동적 라우팅과 반응형 웹을 구현한 웹사이트",
+      "Vite + React + TypeScript 환경의 동적 라우팅과 반응형 디자인을 고려한 개인 포트폴리오 웹사이트 개발",
+      "각 프로젝트 섹션과 상세 페이지는 동적 라우팅을 통해 연결되며, 다양한 디바이스에서의 호환성을 고려한 반응형 디자인이 적용되었습니다.",
+      "다크모드를 지원하며, 자연스러운 사용자 인터페이션을 중점적으로 고려하여 개발하였습니다.",
     ],
 
     detailsDesc: [
