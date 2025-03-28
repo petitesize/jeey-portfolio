@@ -16,16 +16,16 @@ const Wrapper = styled.div`
   overflow-x: hidden;
 `;
 
-const AnimationWrapper = styled.div<{ isLoaded: boolean }>`
-  transform: translate3d(0, ${(props) => (props.isLoaded ? "0" : "-80px")}, 0);
+const AnimationWrapper = styled.div<{ $isLoaded: boolean }>`
+  transform: translate3d(0, ${(props) => (props.$isLoaded ? "0" : "-80px")}, 0);
   transition: transform 1s ease-out;
 `;
 
-const Main = styled.main<{ isLoaded: boolean }>`
+const Main = styled.main<{ $isLoaded: boolean }>`
   /* background-color: ${(props) => props.theme.colors.orange000}; */
   /* height: 100vh; */
   /* width: 100% */
-  opacity: ${(props) => (props.isLoaded ? "1" : "0")};
+  opacity: ${(props) => (props.$isLoaded ? "1" : "0")};
   transition: opacity 1s ease-in;
 `;
 
@@ -44,8 +44,8 @@ const HomeView = () => {
 
   return (
     <Wrapper>
-      <AnimationWrapper isLoaded={isLoaded}>
-        <Main isLoaded={isOpacity}>
+      <AnimationWrapper $isLoaded={isLoaded}>
+        <Main $isLoaded={isOpacity}>
           <Intro />
           {/* <About /> */}
           <Profile />

@@ -10,6 +10,7 @@ import C3 from "@assets/project/details/c3.png";
 import C4 from "@assets/project/details/c4.png";
 import P1 from "@assets/project/details/p1.png";
 import P2 from "@assets/project/details/p2.png";
+import P3 from "@assets/project/details/p3.png";
 import PS1 from "@assets/project/details/ps1.png";
 import PS2 from "@assets/project/details/ps2.png";
 import J1 from "@assets/project/details/j1.png";
@@ -163,9 +164,9 @@ export const projectDetailData = [
       },
       {
         title:
-          "<em>Redux Toolkit</em>을 활용해 전역 다크모드 상태 관리 및 토글 기능 구현",
+          "<em>Redux Toolkit</em>을 활용해 전역 다크모드 상태 관리 및 OS 테마 실시간 연동",
         description:
-          "theme 전역 상태로로 사용자 인터랙션에 따라 다크/라이트 모드를 관리",
+          "전역 상태 theme로 사용자 인터랙션에 따라 다크/라이트 모드를 관리하며, window.matchMedia를 통해 운영체제 테마 변경을 실시간 감지",
       },
       {
         title:
@@ -176,6 +177,8 @@ export const projectDetailData = [
       {
         title:
           "<em>styled-components</em> 및 <em>react-transition-group</em>을 활용한 스타일링과 애니메이션 구현",
+        description:
+          "프로젝트 카드 리스트 전환 시, CSSTransition과 forwardRef를 활용해 ref를 DOM에 연결하여 자연스러운 애니메이션 전환 구현",
       },
       {
         title: "<em>Swiper</em>를 이용하여 프로젝트 상세 슬라이더 UI 구현",
@@ -188,7 +191,7 @@ export const projectDetailData = [
         title: "<em>Vite</em> 기반 빠르고 가벼운 개발 환경 설정",
       },
     ],
-    detailsImg: [P1, P2],
+    detailsImg: [P1, P2, P3],
   },
 
   {

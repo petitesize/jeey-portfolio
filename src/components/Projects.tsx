@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { FixedTitle, TitleDivider } from "./Title";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -38,16 +38,16 @@ const Filter = styled.div`
   }
 `;
 
-const FilterButton = styled.button<{ active: boolean }>`
+const FilterButton = styled.button<{ $active: boolean }>`
   padding: 0.5rem 1rem;
   z-index: 10;
   height: 2.25rem;
   font-size: 1rem;
   font-weight: bold;
-  background: ${({ active, theme }) =>
-    active ? theme.colors.rose300 : theme.colors.rose100};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.black000 : "#000000a8"};
+  background: ${({ $active, theme }) =>
+    $active ? theme.colors.rose300 : theme.colors.rose100};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.black000 : "#000000a8"};
   border: none;
   border-radius: 10075rem;
   cursor: pointer;
@@ -250,6 +250,16 @@ const Projects = () => {
       link: "#",
     },
     {
+      id: "JYportfolio",
+      color: "gold",
+      title: "JY Portfolio",
+      description: "포트폴리오 웹사이트",
+      tags: "#React #Typescript #Redux #Redux-Toolkit #Responsive",
+      img: JYPortImg,
+      type: "Personal",
+      link: "#",
+    },
+    {
       id: "searchCat",
       color: "brown",
       title: "고양이 사진 검색 사이트",
@@ -260,16 +270,6 @@ const Projects = () => {
       link: "#",
     },
 
-    {
-      id: "JYportfolio",
-      color: "gold",
-      title: "JY Portfolio",
-      description: "포트폴리오 웹사이트",
-      tags: "#React #Typescript #Responsive",
-      img: JYPortImg,
-      type: "Personal",
-      link: "#",
-    },
     {
       id: "photoSplash",
       color: "white",
@@ -315,7 +315,7 @@ const Projects = () => {
         {filters.map((filter) => (
           <FilterButton
             key={filter}
-            active={activeFilter === filter}
+            $active={activeFilter === filter}
             onClick={() => setActiveFilter(filter)}
           >
             {filter}
@@ -348,11 +348,25 @@ type ProjectListProps = {
   filter: FilterType;
 };
 
-const ProjectLinkWrapper = styled(Link)<{ isFirst: boolean }>`
+type Props = {
+  $isFirst: boolean;
+} & React.ComponentProps<typeof Link>;
+
+// styled(Link)는 ref를 Link로 전달해주지 않음
+// 단순히 ref를 외부에서 받아와서 넘겨주기 위해 forwardRef 사용
+const RawProjectLinkWrapper = React.forwardRef<HTMLAnchorElement, Props>(
+  ({ children, className, ...rest }, ref) => (
+    <Link ref={ref} className={className} {...rest}>
+      {children}
+    </Link>
+  )
+);
+
+const ProjectLinkWrapper = styled(RawProjectLinkWrapper)<{ $isFirst: boolean }>`
   transition: all, opacity 300ms;
   /* 주요 프로젝트의 경우 grid-column을 2칸을 차지하게 만들어서 강조할 것 */
-  ${({ isFirst }) =>
-    isFirst &&
+  ${({ $isFirst }) =>
+    $isFirst &&
     `
     grid-column: span 2;
   `}
@@ -377,6 +391,16 @@ const ProjectLinkWrapper = styled(Link)<{ isFirst: boolean }>`
 
 const ProjectList: React.FC<ProjectListProps> = ({ projects, filter }) => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+  // 슬라이드마다의 ref를 담아둘 Map 생성
+  const nodeRefs = useRef(new Map());
+
+  // 슬라이드(프로젝트)의 key로 ref 생성
+  const getNodeRef = (key: string) => {
+    if (!nodeRefs.current.has(key)) {
+      nodeRefs.current.set(key, React.createRef());
+    }
+    return nodeRefs.current.get(key);
+  };
 
   useEffect(() => {
     // All 일 때에는 모든 프로젝트를 보여준다
@@ -392,35 +416,45 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects, filter }) => {
 
   return (
     <TransitionGroup component={null}>
-      {filteredProjects.map((project, index) => (
-        // All 필터일 때 메인 프로젝트(index 0 프로젝트에 지정)를 강조할 것
-        // isFirst 프롭은 grid 컬럼을 두개로 지정
+      {filteredProjects.map((project, index) => {
+        const key = `${project.id}-${filter}`;
+        // key 값으로 고유 ref 생성
+        const nodeRef = getNodeRef(key);
 
-        <CSSTransition
-          key={`${project.id}-${filter}`}
-          timeout={0}
-          classNames="fade"
-        >
-          <ProjectLinkWrapper
-            to={`/project/${project.id}`}
-            isFirst={index === 0 && filter === "All"}
+        return (
+          // All 필터일 때 메인 프로젝트(index 0 프로젝트에 지정)를 강조할 것
+          // isFirst 프롭은 grid 컬럼을 두개로 지정
+          <CSSTransition
+            key={key}
+            timeout={0}
+            classNames="fade"
+            // React 18부터는 findDOMNode 에러가 나기 때문에, 해당 프롭 사용하여 에러 해결
+            // 애니메이션 적용할 대상 DOM을 알려주는 prop
+            nodeRef={nodeRef}
           >
-            <ProjectCard key={project.id} className="fade-in">
-              <ImageWrapper className={project.color}>
-                <img src={project.img}></img>
-              </ImageWrapper>
-              <ProjectInfo>
-                <ProjectTitle>
-                  <h2>{project.title}</h2>
-                  <div>→</div>
-                </ProjectTitle>
-                <h3>{project.description}</h3>
-                <p>{project.tags}</p>
-              </ProjectInfo>
-            </ProjectCard>
-          </ProjectLinkWrapper>
-        </CSSTransition>
-      ))}
+            <ProjectLinkWrapper
+              // 실제 해당 DOM에 ref 연결
+              ref={nodeRef}
+              to={`/project/${project.id}`}
+              $isFirst={index === 0 && filter === "All"}
+            >
+              <ProjectCard key={project.id} className="fade-in">
+                <ImageWrapper className={project.color}>
+                  <img src={project.img}></img>
+                </ImageWrapper>
+                <ProjectInfo>
+                  <ProjectTitle>
+                    <h2>{project.title}</h2>
+                    <div>→</div>
+                  </ProjectTitle>
+                  <h3>{project.description}</h3>
+                  <p>{project.tags}</p>
+                </ProjectInfo>
+              </ProjectCard>
+            </ProjectLinkWrapper>
+          </CSSTransition>
+        );
+      })}
     </TransitionGroup>
   );
 };

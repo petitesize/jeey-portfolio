@@ -4,8 +4,21 @@ type ThemeState = {
   mode: string;
 };
 
+type ThemeMode = "light" | "dark";
+
+const getInitialThemeMode = (): ThemeMode => {
+  // 로컬에 저장된 테마가 있으면 그걸 return
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) return savedTheme as ThemeMode;
+
+  //   없으면 os 설정 return
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
 const initialState: ThemeState = {
-  mode: "light",
+  mode: getInitialThemeMode(),
 };
 
 const themeSlice = createSlice({
@@ -14,9 +27,11 @@ const themeSlice = createSlice({
   reducers: {
     toggleTheme(state) {
       state.mode = state.mode === "light" ? "dark" : "light";
+      localStorage.setItem("theme", state.mode);
     },
     setTheme(state, action) {
       state.mode = action.payload;
+      localStorage.setItem("theme", action.payload);
     },
   },
 });

@@ -145,7 +145,7 @@ const ProjectDetail = () => {
               modules={[Pagination, Navigation]}
               pagination={{ clickable: true }}
               navigation
-              loop={true} // 슬라이드 무한 반복
+              loop={project.detailsImg.length > 2} // 슬라이드 무한 반복
               spaceBetween={50} // 슬라이드 간격 설정
               slidesPerView={1.4} // 한 번에 보여줄 슬라이드 수 (1.5개 슬라이드 보이게 설정)
               centeredSlides={true} // 중앙 정렬하여 양 옆에 슬라이드가 보이도록 설정
@@ -435,7 +435,7 @@ const CarouselWrapper = styled.div`
 
   .swiper-button-next,
   .swiper-button-prev {
-    color: ${(props) => props.theme.colors.black000}; // 네비게이션 버튼 색상
+    color: ${(props) => props.theme.colors.header}; // 네비게이션 버튼 색상
   }
 
   /* Swiper의 기본 스타일을 덮어쓰기 */

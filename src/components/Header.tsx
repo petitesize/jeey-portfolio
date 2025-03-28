@@ -59,10 +59,10 @@ const Header = () => {
   ];
 
   return (
-    <HeaderWrapper isLoaded={isLoaded}>
-      <HeaderInner isNavVisible={isNavVisible}>
+    <HeaderWrapper $isLoaded={isLoaded}>
+      <HeaderInner $isNavVisible={isNavVisible}>
         {/* 홈 로고 */}
-        <Logo isNavVisible={isNavVisible}>
+        <Logo $isNavVisible={isNavVisible}>
           <a
             href="#home"
             onClick={() => {
@@ -73,7 +73,10 @@ const Header = () => {
           </a>
         </Logo>
         {/* 웹 내비게이션 */}
-        <Nav isNavVisible={isNavVisible} className={isNavVisible ? "show" : ""}>
+        <Nav
+          $isNavVisible={isNavVisible}
+          className={isNavVisible ? "show" : ""}
+        >
           <ul>
             {headerNav.map((nav, key) => (
               <li key={key}>
@@ -93,7 +96,7 @@ const Header = () => {
         <DarkMode />
         {/* 모바일 내비게이션 */}
         <NavMobile
-          isNavVisible={isNavVisible}
+          $isNavVisible={isNavVisible}
           id="headerToggle"
           aria-controls="primary-menu"
           aria-expanded={isNavVisible}
@@ -108,23 +111,23 @@ const Header = () => {
 
 export default Header;
 
-const HeaderWrapper = styled.header<{ isLoaded: boolean }>`
+const HeaderWrapper = styled.header<{ $isLoaded: boolean }>`
   position: fixed;
   left: 0;
-  top: ${(props) => (props.isLoaded ? "0" : "-80px")};
+  top: ${(props) => (props.$isLoaded ? "0" : "-80px")};
   transition: top 1s ease-out;
   width: 100%;
   z-index: 10000;
   will-change: transform;
 `;
 
-const HeaderInner = styled.div<{ isNavVisible: boolean }>`
+const HeaderInner = styled.div<{ $isNavVisible: boolean }>`
   display: flex;
 
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) =>
-    props.isNavVisible ? "rgba(254, 168, 180,1)" : "rgba(255, 250, 245, 0.1)"};
+    props.$isNavVisible ? "rgba(254, 168, 180,1)" : "rgba(255, 250, 245, 0.1)"};
   /* 헤더 불투명 효과 */
   backdrop-filter: blur(15px);
   padding: 1rem 9rem;
@@ -136,14 +139,14 @@ const HeaderInner = styled.div<{ isNavVisible: boolean }>`
   }
 `;
 
-const Logo = styled.div<{ isNavVisible: boolean }>`
+const Logo = styled.div<{ $isNavVisible: boolean }>`
   font-size: 24px;
   padding: 12px 0;
   text-align: center;
   /* text-transform: uppercase; */
   line-height: 1;
   transition: color 0.5s ease, transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-  color: ${(props) => (props.isNavVisible ? "white" : "#ff99ad ")};
+  color: ${(props) => (props.$isNavVisible ? "white" : "#ff99ad ")};
   font-weight: 900;
   em {
     font-size: 10px;
@@ -154,7 +157,7 @@ const Logo = styled.div<{ isNavVisible: boolean }>`
   }
 `;
 
-const NavMobile = styled.div<{ isNavVisible: boolean }>`
+const NavMobile = styled.div<{ $isNavVisible: boolean }>`
   /* 모바일에서만 보이게 */
   display: none;
   width: 40px;
@@ -171,7 +174,7 @@ const NavMobile = styled.div<{ isNavVisible: boolean }>`
     width: 40px;
     height: 2px;
     /* 메뉴가 열리면(isNavVisible) 흰색, 닫히면 검은색 */
-    background-color: ${(props) => (props.isNavVisible ? "#fff " : "#000")};
+    background-color: ${(props) => (props.$isNavVisible ? "#fff " : "#000")};
     margin-top: 19px;
     position: relative;
 
@@ -200,7 +203,7 @@ const NavMobile = styled.div<{ isNavVisible: boolean }>`
   }
 `;
 
-const Nav = styled.nav<{ isNavVisible: boolean }>`
+const Nav = styled.nav<{ $isNavVisible: boolean }>`
   /* 모바일용 css */
   @media (max-width: 768px) {
     position: absolute;
@@ -215,10 +218,10 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
     overflow-y: auto;
     /* 활성화 시켰을 때, 왼쪽으로 나오는 효과들 */
     /* isNavVisible 상태가 아니면 화면 밖에 */
-    transform: translateX(${(props) => (props.isNavVisible ? "0" : "100%")});
-    opacity: ${(props) => (props.isNavVisible ? "1" : "0")};
+    transform: translateX(${(props) => (props.$isNavVisible ? "0" : "100%")});
+    opacity: ${(props) => (props.$isNavVisible ? "1" : "0")};
     transition: visibility 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-    visibility: ${(props) => (props.isNavVisible ? "visible" : "hidden")};
+    visibility: ${(props) => (props.$isNavVisible ? "visible" : "hidden")};
 
     ul {
       list-style: none;
@@ -302,7 +305,7 @@ const Nav = styled.nav<{ isNavVisible: boolean }>`
       }
 
       &:hover {
-        color: ${(props) => (props.isNavVisible ? "#fff " : `#ff99ad`)};
+        color: ${(props) => (props.$isNavVisible ? "#fff " : `#ff99ad`)};
         transition: all 0.3s ease;
 
         &::before {

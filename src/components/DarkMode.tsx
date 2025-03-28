@@ -13,10 +13,10 @@ export const DarkMode = () => {
   return (
     <>
       <ToggleButton type="button" onClick={() => dispatch(toggleTheme())}>
-        <IconWrapper active={mode === "light"}>
+        <IconWrapper $active={mode === "light"}>
           <MdOutlineLightMode />
         </IconWrapper>
-        <IconWrapper active={mode === "dark"}>
+        <IconWrapper $active={mode === "dark"}>
           <MdOutlineDarkMode />
         </IconWrapper>
       </ToggleButton>
@@ -39,13 +39,13 @@ const ToggleButton = styled.button`
   }
 `;
 
-const IconWrapper = styled.span<{ active: boolean }>`
+const IconWrapper = styled.span<{ $active: boolean }>`
   position: absolute;
   -webkit-tap-highlight-color: transparent;
   top: 0;
   transition: transform 0.3s ease;
-  opacity: ${(props) => (props.active ? 1 : 0)};
-  transform: ${(props) => (props.active ? "scale(1)" : "scale(0.8)")};
+  opacity: ${(props) => (props.$active ? 1 : 0)};
+  transform: ${(props) => (props.$active ? "scale(1)" : "scale(0.8)")};
 
   > svg {
     color: ${(props) => props.theme.colors.text};
