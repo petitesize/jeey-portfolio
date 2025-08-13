@@ -349,12 +349,20 @@ const ImageWrapper = styled.div`
     object-fit: cover;
   }
 
+  &.orange {
+    background-image: linear-gradient(
+      -45deg,
+      rgba(249, 193, 99, 0.9),
+      rgba(249, 204, 128, 0.8),
+      rgb(255, 227, 189)
+    );
+  }
   &.green {
     background-image: linear-gradient(
       -45deg,
-      rgb(109, 152, 122, 0.5),
-      rgb(109, 152, 122, 0.4),
-      rgb(223, 233, 224, 0.5)
+      rgb(109, 152, 122, 0.8),
+      rgb(109, 152, 122, 0.7),
+      rgb(223, 233, 224, 0.8)
     );
   }
   &.yellow {

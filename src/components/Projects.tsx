@@ -9,6 +9,7 @@ import PhotoSplash from "@assets/project/PhotoSplash.png";
 import Jwitter from "@assets/project/Jwitter.png";
 import FloraDer from "@assets/project/FloraDer.png";
 import SearchCat from "@assets/project/SearchCat.png";
+import Unretired from "@assets/project/Unretired.png";
 
 // 섹션 전체 영영
 const ProjectsSection = styled.section`
@@ -101,20 +102,28 @@ const ImageWrapper = styled.div`
   opacity: 1;
   border: 1px none solid;
 
+  &.orange {
+    background-image: linear-gradient(
+      -45deg,
+      rgba(249, 193, 99, 0.9),
+      rgba(249, 204, 128, 0.8),
+      rgb(255, 227, 189)
+    );
+  }
   &.green {
     background-image: linear-gradient(
       -45deg,
-      rgb(109, 152, 122, 0.5),
-      rgb(109, 152, 122, 0.4),
-      rgb(223, 233, 224, 0.5)
+      rgb(109, 152, 122, 0.8),
+      rgb(109, 152, 122, 0.7),
+      rgb(223, 233, 224, 0.8)
     );
   }
   &.yellow {
     background-image: linear-gradient(
       -45deg,
       rgb(253, 232, 158, 1),
-      rgb(253, 232, 158, 0.5),
-      rgb(253, 232, 158, 0.2)
+      rgb(253, 232, 158, 0.8),
+      rgb(253, 232, 158, 0.8)
     );
   }
   &.white {
@@ -130,8 +139,8 @@ const ImageWrapper = styled.div`
     background-image: linear-gradient(
       -45deg,
       rgb(255, 222, 226, 1),
-      rgb(255, 222, 226, 0.5),
-      rgb(255, 222, 226, 0.2)
+      rgb(255, 222, 226, 0.8),
+      rgb(255, 222, 226, 0.8)
     );
   }
   &.gold {
@@ -139,7 +148,7 @@ const ImageWrapper = styled.div`
       -45deg,
       rgb(170, 147, 136, 0.9),
       rgb(232, 222, 212, 1),
-      rgb(170, 147, 136, 0.6),
+      rgb(170, 147, 136, 0.8),
       rgb(232, 222, 212, 1)
     );
   }
@@ -148,8 +157,8 @@ const ImageWrapper = styled.div`
       -45deg,
       rgb(160, 128, 108, 0.9),
       rgb(200, 170, 140, 0.8),
-      rgb(225, 205, 180, 0.6),
-      rgb(245, 230, 210, 0.4)
+      rgb(225, 205, 180, 0.8),
+      rgb(245, 230, 210, 0.8)
     );
   }
 
@@ -239,6 +248,17 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>("All");
 
   const projects: Project[] = [
+    {
+      id: "unretired",
+      color: "orange",
+      title: "Un:Retired",
+      description:
+        "50+ 베테랑에게 배우는 진짜 인생 수업, 온라인 강의 플랫폼 Un:Retired",
+      tags: "#React #TypeScript #Zustand #TailwindCSS #RadixUI #TanStakReactQuery #AWS·S3·CloudFront",
+      img: Unretired,
+      type: "Team",
+      link: "#",
+    },
     {
       id: "carebuddy",
       color: "green",

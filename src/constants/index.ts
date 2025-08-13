@@ -1,4 +1,5 @@
 import CarebuddyImg from "@assets/project/carebuddy.png";
+import Unretired from "@assets/project/Unretired.png";
 import JYPortImg from "@assets/project/portjeey.png";
 import PhotoSplash from "@assets/project/PhotoSplash.png";
 import Jwitter from "@assets/project/Jwitter.png";
@@ -8,6 +9,10 @@ import C1 from "@assets/project/details/c1.png";
 import C2 from "@assets/project/details/c2.png";
 import C3 from "@assets/project/details/c3.png";
 import C4 from "@assets/project/details/c4.png";
+import U1 from "@assets/project/details/U1.png";
+import U2 from "@assets/project/details/U2.png";
+import U3 from "@assets/project/details/U3.png";
+import U4 from "@assets/project/details/U4.png";
 import P1 from "@assets/project/details/p1.png";
 import P2 from "@assets/project/details/p2.png";
 import P3 from "@assets/project/details/p3.png";
@@ -23,6 +28,69 @@ import S1 from "@assets/project/details/s1.png";
 import S2 from "@assets/project/details/s2.png";
 
 export const projectDetailData = [
+  {
+    id: "unretired",
+    backgroundColor: "orange",
+    img: Unretired,
+    title:
+      "50+ 베테랑에게 배우는 진짜 인생 수업, 온라인 강의 플랫폼 Un:Retired",
+    buttons: [
+      { text: "사이트 방문", link: "https://www.unretired.co.kr/" },
+      {
+        text: "Instagram",
+        link: "https://www.instagram.com/unretired_official/",
+      },
+    ],
+    desc: [
+      "Un:Retired는 50+ 세대를 위한 온라인 강의 플랫폼으로, 은퇴 이후의 커리어와 라이프를 새롭게 설계할 수 있는 다양한 강의를 제공합니다.",
+      "다양한 분야의 베테랑 강사들이 직접 전하는 실전 경험과 노하우를 통해, 인생 2막을 준비하는 이들에게 실질적인 도움을 주기 위해 만들어진 서비스입니다.",
+      "또한, 강의 카테고리별 추천과 커뮤니티 기능을 통해 학습자와 강사가 함께 성장하는 네트워킹을 제공합니다.",
+    ],
+    contribution: [
+      "토스페이먼츠 결제 연동 및 주문 관리",
+      "강의 수강 페이지",
+      "이벤트 쿠폰 기능",
+      "운영/개발 도메인 빌드 자동화 CI/CD 환경 구성",
+      "관리자 센터 페이지",
+    ],
+    detailsDesc: [
+      {
+        title:
+          "<em>토스페이먼츠 SDK</em> 연동을 통한 결제 및 주문 관리 기능 구현",
+        description:
+          "결제 위젯과 API를 연동하여 강의 결제부터 승인 과정 구현. 백엔드와 데이터 정합성 검사 및 승인 요청 흐름 협업 설계",
+      },
+      {
+        title:
+          "<em>React Query</em> & <em>HLS</em>동영상 플레이어 기반 강의 페이지 UI 및 핵심 기능 구현",
+        description:
+          "챕터별 동영상 플레이어를 적용하고, React Query로 재호출 및 로딩 상태 관리, 학습 진행률 저장 기능 구현",
+      },
+      {
+        title: "쿠폰 API 적용을 통한 조건부 동영상 재생",
+      },
+      {
+        title: "<em>JWT</em> 기반 이메일 회원가입 및 관리자 로그인 기능",
+        description:
+          "JWT 기반 인증 및 세션 유지, Axios Interceptor로 토큰 갱신 및 인증 오류 처리 자동화",
+      },
+      {
+        title: "useBreakpoint <em>custom hook</em> 활용하여 반응형 디자인 적용",
+        description:
+          "Tailwind CSS를 활용하여 데스크톱·태블릿·모바일 환경에 맞춘 UI 반응형 레이아웃 구현",
+      },
+      {
+        title:
+          "<em>GitHub Actions</em> 기반 브랜치별 자동 배포 파이프라인 구축",
+        description:
+          "운영/개발 브랜치 별 빌드 및 AWS S3 + CloudFront 자동 배포 환경 구성",
+      },
+      {
+        title: "QA 이슈 대응 및 세부 기능 고도화",
+      },
+    ],
+    detailsImg: [U4, U3, U2, U1],
+  },
   {
     id: "carebuddy",
     backgroundColor: "green",
