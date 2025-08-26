@@ -12,6 +12,8 @@ import recoil from "@assets/icon/recoil.png";
 import styledC from "@assets/icon/styled-component.png";
 import ts from "@assets/icon/typescript.png";
 import vercel from "@assets/icon/vercel-svgrepo-com.png";
+import tailwind from "@assets/icon/TailwindCSS.png";
+import redux from "@assets/icon/Redux.png";
 
 const SkillsSection = styled.section`
   height: 100%;
@@ -146,8 +148,16 @@ const Skills = () => {
                 <StackName>Components</StackName>
               </SkillItem>
               <SkillItem>
+                <Icon src={tailwind} />
+                <StackName>TailwindCSS</StackName>
+              </SkillItem>
+              <SkillItem>
                 <Icon src={recoil} />
                 <StackName>Recoil</StackName>
+              </SkillItem>
+              <SkillItem>
+                <Icon src={redux} />
+                <StackName>Redux</StackName>
               </SkillItem>
             </ItemContainer>
           </SkillCategory>
